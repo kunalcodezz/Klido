@@ -247,7 +247,7 @@ export const BeforeAfterSlider: React.FC = () => {
     }, RESUME_DELAY_MS);
   };
 
-  // 7b. Hover-to-control: pause on mouse enter, resume 1s after mouse leave (desktop only)
+  // 7b. Hover-to-control: cursor position controls divider on desktop
   const handleMouseEnter = () => {
     isHoveringRef.current = true;
     setIsInteracting(true);
@@ -261,6 +261,13 @@ export const BeforeAfterSlider: React.FC = () => {
       resumeTimerRef.current = null;
     }
   };
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+    setSliderPos(x);
+  }, []);
 
   const handleMouseLeave = () => {
     isHoveringRef.current = false;
@@ -300,6 +307,7 @@ export const BeforeAfterSlider: React.FC = () => {
       <div
         className="relative rounded-2xl border border-[#E5EAF5] bg-white overflow-hidden shadow-sm"
         onMouseEnter={handleMouseEnter}
+        onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
         {/* Category Header Bar */}
@@ -318,6 +326,7 @@ export const BeforeAfterSlider: React.FC = () => {
         {/* 3. Interactive / Auto-Animated Comparison Screen */}
         <div
           ref={containerRef}
+          onMouseMove={handleMouseMove}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
@@ -340,17 +349,17 @@ export const BeforeAfterSlider: React.FC = () => {
               transition={{ duration: 0.35, ease: 'easeInOut' }}
               className="absolute inset-0 w-full h-full"
             >
-              {/* Layer 1: BEFORE Image (Visible on the RIGHT side of the divider) */}
+              {/* Layer 1: AFTER Image (Base layer, visible on the RIGHT side of the divider from sliderPos to 100%) */}
               <div className="absolute inset-0 w-full h-full">
                 <img
-                  src={currentCategory.before.image}
-                  alt={`${currentCategory.name} - Before`}
+                  src={currentCategory.after.image}
+                  alt={`${currentCategory.name} - After`}
                   className="w-full h-full object-cover object-center select-none pointer-events-none"
                   draggable={false}
                 />
               </div>
 
-              {/* Layer 2: AFTER Image (Visible on the LEFT side of the divider, clipped at sliderPos) */}
+              {/* Layer 2: BEFORE Image (Top layer, visible on the LEFT side of the divider from 0% to sliderPos%) */}
               <div
                 className="absolute inset-0 w-full h-full overflow-hidden"
                 style={{
@@ -359,8 +368,8 @@ export const BeforeAfterSlider: React.FC = () => {
                 }}
               >
                 <img
-                  src={currentCategory.after.image}
-                  alt={`${currentCategory.name} - After`}
+                  src={currentCategory.before.image}
+                  alt={`${currentCategory.name} - Before`}
                   className="w-full h-full object-cover object-center select-none pointer-events-none"
                   draggable={false}
                 />
@@ -368,26 +377,28 @@ export const BeforeAfterSlider: React.FC = () => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Floating Badges */}
-          {/* AFTER Label (Top Left, above the After side) */}
-          <div className="absolute top-3 left-3 z-20 pointer-events-none">
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E5EAF5] shadow-md">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#3D5AFE]" />
-              <span className="text-[10px] sm:text-[11px] font-mono tracking-wider font-semibold text-[#111827]">
-                AFTER (KLIDO)
-              </span>
+          {/* Single Dynamic Label — positioned over the dominant image */}
+          {sliderPos > 50 ? (
+            /* BEFORE label: dominant when divider is > 50% → more BEFORE visible on left side */
+            <div className="absolute top-3 left-3 z-20 pointer-events-none transition-opacity duration-200">
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E5EAF5] shadow-md">
+                <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+                <span className="text-[10px] sm:text-[11px] font-mono tracking-wider font-semibold text-[#111827]">
+                  BEFORE
+                </span>
+              </div>
             </div>
-          </div>
-
-          {/* BEFORE Label (Top Right, above the Before side) */}
-          <div className="absolute top-3 right-3 z-20 pointer-events-none">
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E5EAF5] shadow-md">
-              <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
-              <span className="text-[10px] sm:text-[11px] font-mono tracking-wider font-semibold text-[#111827]">
-                BEFORE
-              </span>
+          ) : (
+            /* AFTER label: dominant when divider is <= 50% → more AFTER visible on right side */
+            <div className="absolute top-3 right-3 z-20 pointer-events-none transition-opacity duration-200">
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#E5EAF5] shadow-md">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#3D5AFE]" />
+                <span className="text-[10px] sm:text-[11px] font-mono tracking-wider font-semibold text-[#111827]">
+                  AFTER (KLIDO)
+                </span>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Draggable & Animated Vertical Divider Line */}
           <div
