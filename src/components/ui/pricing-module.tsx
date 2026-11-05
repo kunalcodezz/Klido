@@ -143,10 +143,10 @@ export const PricingModule: React.FC<PricingModuleProps> = ({
       {/* Mode / Frequency Switcher */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-12">
         <div>
-          <span className="text-[12px] uppercase font-sans tracking-[0.08em] font-medium text-[#9AA3B2] block mb-1">
+          <span className="text-[12px] uppercase font-mono tracking-[0.1em] font-semibold text-[#3D5AFE] block mb-1">
             Pricing Model
           </span>
-          <p className="text-[14px] text-[#F4F6FA]">
+          <p className="text-[14px] text-[#64748B]">
             {selectedFrequency === "Bundles"
               ? "Comprehensive multi-service monthly retainers with bundled savings."
               : "Individual dedicated service capabilities billed monthly in advance."}
@@ -170,20 +170,20 @@ export const PricingModule: React.FC<PricingModuleProps> = ({
             <Card
               key={tier.id}
               className={cn(
-                "relative rounded-[2px] border p-6 sm:p-7 flex flex-col justify-between transition-all duration-200 ease-out hover:-translate-y-1 group bg-[#0B0F18]",
+                "relative rounded-2xl border p-6 sm:p-7 flex flex-col justify-between transition-all duration-200 ease-out hover:-translate-y-1 group bg-white shadow-xs hover:shadow-lg hover:shadow-[#3D5AFE]/10",
                 isHighlighted
-                  ? "border-[#1558C9] shadow-[0_0_24px_rgba(21,88,201,0.22)]"
+                  ? "border-[#3D5AFE] ring-2 ring-[#3D5AFE]/20 shadow-md shadow-[#3D5AFE]/10"
                   : isPopular
-                  ? "border-[#1558C9]/60 hover:border-[#1558C9]"
-                  : "border-white/8 hover:border-[#1558C9]"
+                  ? "border-[#3D5AFE]/40 hover:border-[#3D5AFE]"
+                  : "border-[#E5EAF5] hover:border-[#3D5AFE]"
               )}
             >
               {/* Subtle Ambient Grid Pattern for Recommended Full Operations Tier */}
               {isHighlighted && (
                 <div
-                  className="absolute inset-0 pointer-events-none opacity-[0.08]"
+                  className="absolute inset-0 pointer-events-none opacity-[0.03]"
                   style={{
-                    backgroundImage: `linear-gradient(to right, #FFFFFF 1px, transparent 1px), linear-gradient(to bottom, #FFFFFF 1px, transparent 1px)`,
+                    backgroundImage: `linear-gradient(to right, #3D5AFE 1px, transparent 1px), linear-gradient(to bottom, #3D5AFE 1px, transparent 1px)`,
                     backgroundSize: "24px 24px",
                     maskImage: "radial-gradient(ellipse at center, black 20%, transparent 75%)",
                     WebkitMaskImage: "radial-gradient(ellipse at center, black 20%, transparent 75%)",
@@ -195,7 +195,7 @@ export const PricingModule: React.FC<PricingModuleProps> = ({
               <div className="relative z-10 flex-1 flex flex-col">
                 <CardHeader className="p-0 pb-4">
                   <div className="flex items-center justify-between gap-2 mb-2 min-h-[24px]">
-                    <span className="text-[11px] uppercase font-mono tracking-[0.08em] font-medium text-[#9AA3B2]">
+                    <span className="text-[11px] uppercase font-mono tracking-[0.08em] font-semibold text-[#64748B]">
                       Tier Plan
                     </span>
 
@@ -203,10 +203,10 @@ export const PricingModule: React.FC<PricingModuleProps> = ({
                       <Badge
                         variant={isHighlighted ? "default" : "popular"}
                         className={cn(
-                          "rounded-[2px] text-[11px] font-medium px-2 py-0.5",
+                          "rounded-full text-[11px] font-semibold px-2.5 py-0.5",
                           isHighlighted
-                            ? "bg-[#1558C9] text-white border-transparent"
-                            : "bg-[#1558C9]/15 text-[#D4FF24] border-[#1558C9]/40"
+                            ? "bg-[#3D5AFE] text-white border-transparent"
+                            : "bg-[#E8EDFF] text-[#3D5AFE] border-[#3D5AFE]/30"
                         )}
                       >
                         {tier.badge}
@@ -214,19 +214,19 @@ export const PricingModule: React.FC<PricingModuleProps> = ({
                     )}
                   </div>
 
-                  <CardTitle className="font-serif text-[20px] font-normal tracking-[-0.02em] text-[#F4F6FA] group-hover:text-[#1558C9] transition-colors">
+                  <CardTitle className="font-sans text-[20px] font-bold tracking-tight text-[#111827] group-hover:text-[#3D5AFE] transition-colors">
                     {tier.name}
                   </CardTitle>
 
-                  <CardDescription className="text-[13px] leading-[1.6] text-[#9AA3B2] mt-1.5 min-h-[42px]">
+                  <CardDescription className="text-[13px] leading-[1.6] text-[#64748B] mt-1.5 min-h-[42px]">
                     {tier.description}
                   </CardDescription>
                 </CardHeader>
 
                 {/* Pricing Block with NumberFlow currency formatting */}
-                <CardContent className="p-0 pt-4 pb-4 border-t border-white/8">
+                <CardContent className="p-0 pt-4 pb-4 border-t border-[#E5EAF5]">
                   <div className="flex items-baseline gap-1.5">
-                    <span className="font-price text-[28px] sm:text-[32px] font-bold leading-none text-[#F4F6FA]">
+                    <span className="font-price text-[28px] sm:text-[32px] font-bold leading-none text-[#111827]">
                       <NumberFlow
                         value={tier.price}
                         locales="en-IN"
@@ -237,7 +237,7 @@ export const PricingModule: React.FC<PricingModuleProps> = ({
                         }}
                       />
                     </span>
-                    <span className="text-[12px] text-[#9AA3B2]">
+                    <span className="text-[12px] text-[#64748B]">
                       {tier.billingPeriod || "/ month"}
                     </span>
                   </div>
@@ -245,12 +245,12 @@ export const PricingModule: React.FC<PricingModuleProps> = ({
                   {/* Struck-through price & savings pill */}
                   <div className="min-h-[22px] mt-1.5 flex items-center gap-2">
                     {tier.originalPrice && tier.originalPrice > tier.price && (
-                      <span className="text-[12px] text-[#9AA3B2] line-through font-price">
+                      <span className="text-[12px] text-[#94A3B8] line-through font-price">
                         was ₹{tier.originalPrice.toLocaleString("en-IN")}
                       </span>
                     )}
                     {tier.savings && tier.savings > 0 && (
-                      <span className="text-[11px] font-price font-medium text-[#D4FF24]">
+                      <span className="text-[11px] font-price font-semibold text-[#3D5AFE] bg-[#E8EDFF] px-2 py-0.5 rounded-full">
                         Save ₹{tier.savings.toLocaleString("en-IN")}/mo
                       </span>
                     )}
@@ -258,20 +258,20 @@ export const PricingModule: React.FC<PricingModuleProps> = ({
                 </CardContent>
 
                 {/* Features List with Checkmark icon */}
-                <div className="pt-4 border-t border-white/8 mb-6 flex-1">
-                  <span className="text-[11px] uppercase font-sans tracking-[0.08em] block mb-3 font-semibold text-[#9AA3B2]">
+                <div className="pt-4 border-t border-[#E5EAF5] mb-6 flex-1">
+                  <span className="text-[11px] uppercase font-sans tracking-[0.08em] block mb-3 font-semibold text-[#64748B]">
                     Included Deliverables
                   </span>
                   <ul className="space-y-2.5">
                     {tier.features.map((feature, idx) => (
                       <li
                         key={idx}
-                        className="text-[13px] sm:text-[14px] flex items-start gap-2.5 leading-snug text-[#F4F6FA]"
+                        className="text-[13px] sm:text-[14px] flex items-start gap-2.5 leading-snug text-[#111827]"
                       >
                         <Check
                           size={15}
-                          strokeWidth={2}
-                          className="mt-0.5 shrink-0 text-[#1558C9]"
+                          strokeWidth={2.2}
+                          className="mt-0.5 shrink-0 text-[#3D5AFE]"
                         />
                         <span>{feature}</span>
                       </li>
@@ -281,18 +281,18 @@ export const PricingModule: React.FC<PricingModuleProps> = ({
               </div>
 
               {/* Action Button */}
-              <CardFooter className="p-0 pt-4 border-t border-white/8 relative z-10">
+              <CardFooter className="p-0 pt-4 border-t border-[#E5EAF5] relative z-10">
                 <Button
                   type="button"
                   onClick={() => handleSelectTier(tier)}
                   variant={isHighlighted ? "default" : isPopular ? "default" : "secondary"}
                   className={cn(
-                    "w-full flex items-center justify-center gap-2 group/btn rounded-[2px] cursor-pointer",
+                    "w-full flex items-center justify-center gap-2 group/btn rounded-full cursor-pointer h-11 text-[14px] font-semibold transition-all duration-150",
                     isHighlighted
-                      ? "bg-[#1558C9] hover:bg-[#1A66E0] text-white"
+                      ? "bg-[#3D5AFE] hover:bg-[#2F47D4] text-white shadow-sm shadow-[#3D5AFE]/25"
                       : isPopular
-                      ? "bg-[#1558C9]/20 hover:bg-[#1558C9] text-white border border-[#1558C9]/50"
-                      : "border border-white/20 bg-transparent text-[#F4F6FA] hover:border-[#1558C9] hover:text-[#D4FF24]"
+                      ? "bg-[#E8EDFF] hover:bg-[#3D5AFE] hover:text-white text-[#3D5AFE] border border-[#3D5AFE]/30"
+                      : "border border-[#E5EAF5] bg-white text-[#111827] hover:border-[#3D5AFE] hover:bg-[#F3F6FF]"
                   )}
                 >
                   <span>{tier.cta}</span>

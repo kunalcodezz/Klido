@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
 import { CountUp } from 'countup.js';
-import { StaticHeroPhone } from '../canvas/SharedCanvas';
+import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -119,98 +119,101 @@ export const Hero: React.FC = () => {
       className="pt-24 pb-16 lg:pt-36 lg:pb-24 bg-transparent relative z-20 pointer-events-auto"
     >
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
-        {/* Hero Split: 55% Text zone on the left, 45% 3D Portal zone on the right on desktop */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-12">
-          {/* Text Column: sits directly on clean #030407 background with no box */}
+        {/* Hero Split: 55% Text zone on the left, 45% Before/After Showcase on the right */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10 lg:gap-14">
+          {/* Text Column */}
           <div className="w-full lg:w-[55%] relative z-20 pointer-events-auto">
-            <span className="hero-subhead text-[12px] uppercase font-sans tracking-[0.08em] font-medium text-[#9AA3B2] block mb-4">
-              Digital Growth & E-Commerce Operations
-            </span>
+            {/* Availability / Status Badge */}
+            <div className="hero-subhead inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#E8EDFF] border border-[#3D5AFE]/25 text-[#3D5AFE] text-[12px] font-semibold tracking-wide mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#3D5AFE] animate-pulse" />
+              <span>AVAILABLE FOR NEW CLIENTS · Q2 2026</span>
+            </div>
 
-            {/* Headline: maximum 2 lines, clamp(40px, 6vw, 84px), color #F4F6FA, strong contrast */}
+            {/* Headline: Modern bold sans-serif with electric blue highlight */}
             <h1
               ref={headlineRef}
-              className="font-serif font-normal text-[#F4F6FA] leading-[1.06] tracking-[-0.02em] mb-6"
-              style={{ fontSize: 'clamp(40px, 6vw, 84px)' }}
+              className="font-sans font-bold text-[#111827] leading-[1.04] tracking-[-0.035em] mb-6"
+              style={{ fontSize: 'clamp(42px, 6.2vw, 82px)' }}
             >
-              Growth without the chaos.
+              Growth without the <span className="text-[#3D5AFE]">chaos</span>.
             </h1>
 
-            {/* Subtext: #9AA3B2, max width 52ch */}
-            <p className="hero-subhead text-[16px] sm:text-[17px] leading-[1.6] text-[#9AA3B2] max-w-[52ch] mb-8">
+            {/* Subtext: Muted grey #64748B, max width 50ch */}
+            <p className="hero-subhead text-[17px] sm:text-[18px] leading-[1.65] text-[#64748B] max-w-[50ch] mb-8 font-normal">
               We run the marketing and the back-end, so your brand can scale without chaos. All unit economics audited before scaling.
             </p>
 
-            {/* Buttons: 48px height, 2px radius, same spacing, fully visible at scroll 0 */}
+            {/* Two Premium CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              {/* Primary button: solid Acid Lime #D4FF24 with #030407 text */}
+              {/* Primary button: Electric Blue #3D5AFE with white text & subtle lime accent */}
               <button
                 type="button"
                 onClick={() => scrollTo('services')}
-                className="hero-cta-btn h-12 px-6 rounded-[2px] bg-[#D4FF24] hover:bg-[#c2ed18] text-[#030407] text-[14px] font-semibold leading-none transition-all duration-150 ease-out text-center cursor-pointer hover:-translate-y-0.5 whitespace-nowrap inline-flex items-center justify-center shadow-sm"
+                className="hero-cta-btn h-12 px-8 rounded-full bg-[#3D5AFE] hover:bg-[#2F47D4] text-white text-[15px] font-semibold leading-none transition-all duration-150 ease-out text-center cursor-pointer hover:-translate-y-0.5 whitespace-nowrap inline-flex items-center justify-center shadow-md shadow-[#3D5AFE]/25 hover:shadow-lg hover:shadow-[#3D5AFE]/30"
               >
                 Explore Our Services
               </button>
 
-              {/* Secondary button: transparent with 1px rgba(255,255,255,0.35) border and #F4F6FA text, hover border #1558C9 */}
+              {/* Secondary button: Clean white with subtle border and text #111827 */}
               <button
                 type="button"
                 onClick={() => scrollTo('pricing')}
-                className="hero-cta-btn h-12 px-6 rounded-[2px] bg-transparent border border-[rgba(255,255,255,0.35)] hover:border-[#1558C9] hover:bg-[#1558C9]/10 text-[#F4F6FA] text-[14px] font-medium leading-none transition-all duration-150 ease-out text-center cursor-pointer hover:-translate-y-0.5 whitespace-nowrap inline-flex items-center justify-center"
+                className="hero-cta-btn h-12 px-8 rounded-full bg-white border border-[#E5EAF5] hover:border-[#3D5AFE] hover:bg-[#F3F6FF] text-[#111827] text-[15px] font-medium leading-none transition-all duration-150 ease-out text-center cursor-pointer hover:-translate-y-0.5 whitespace-nowrap inline-flex items-center justify-center shadow-xs"
               >
                 Build Your Growth Plan
               </button>
             </div>
           </div>
 
-          {/* On tablet & mobile (< 1024px): Dedicated slot below the text */}
-          <div className="block lg:hidden w-full h-[54vh] max-h-[480px] my-4 pointer-events-none">
-            <StaticHeroPhone />
+          {/* On tablet & mobile (< 1024px): Interactive Before/After Comparison Showcase inside white rounded card */}
+          <div className="block lg:hidden w-full my-6 pointer-events-auto">
+            <div className="rounded-3xl p-2.5 sm:p-3 bg-white border border-[#E5EAF5] shadow-[0_20px_50px_rgba(61,90,254,0.07)]">
+              <BeforeAfterSlider />
+            </div>
           </div>
 
-          {/* Desktop Right Zone: 45% width dedicated portal space (min-height 70vh, vertically centered) */}
-          <div
-            className="hidden lg:flex lg:w-[45%] min-h-[70vh] items-center justify-center pointer-events-none"
-            aria-hidden="true"
-          >
-            <StaticHeroPhone />
+          {/* Desktop Right Zone: 45% width inside large white rounded container with subtle shadow */}
+          <div className="hidden lg:flex lg:w-[45%] items-center justify-center pointer-events-auto">
+            <div className="w-full rounded-3xl p-3 sm:p-4 bg-white border border-[#E5EAF5] shadow-[0_20px_50px_rgba(61,90,254,0.07)]">
+              <BeforeAfterSlider />
+            </div>
           </div>
         </div>
 
-        {/* Stats Bar: Fully opaque #0B0F18 with 1px rgba(255,255,255,0.08) border, 48px spacing from buttons (mt-12) */}
-        <div className="hero-divider bg-[#0B0F18] p-6 sm:p-8 rounded-[2px] border border-[rgba(255,255,255,0.08)] mt-12 grid grid-cols-12 gap-8 shadow-xs">
+        {/* Stats Bar: Clean white rounded card with 1px border #E5EAF5 and soft shadow */}
+        <div className="hero-divider bg-white p-6 sm:p-8 rounded-2xl border border-[#E5EAF5] mt-14 grid grid-cols-12 gap-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)]">
           <div className="hero-metric-item col-span-12 sm:col-span-4">
             <span
               ref={metricNum1}
-              className="font-serif text-[24px] font-normal text-[#F4F6FA] block mb-1 tabular-nums"
+              className="font-sans text-[26px] font-bold text-[#111827] block mb-1 tabular-nums tracking-tight"
             >
               0% Markup
             </span>
-            <p className="text-[14px] leading-relaxed text-[#9AA3B2]">
+            <p className="text-[14px] leading-relaxed text-[#64748B]">
               Ad spend paid directly to Meta with zero markup or hidden margin cuts.
             </p>
           </div>
 
-          <div className="hero-metric-item col-span-12 sm:col-span-4 sm:border-l sm:border-[rgba(255,255,255,0.08)] sm:pl-8">
+          <div className="hero-metric-item col-span-12 sm:col-span-4 sm:border-l sm:border-[#E5EAF5] sm:pl-8">
             <span
               ref={metricNum2}
-              className="font-serif text-[24px] font-normal text-[#F4F6FA] block mb-1 tabular-nums"
+              className="font-sans text-[26px] font-bold text-[#111827] block mb-1 tabular-nums tracking-tight"
             >
               10 Creators / mo
             </span>
-            <p className="text-[14px] leading-relaxed text-[#9AA3B2]">
+            <p className="text-[14px] leading-relaxed text-[#64748B]">
               Vetted barter creator placements delivering monthly UGC assets for ad testing.
             </p>
           </div>
 
-          <div className="hero-metric-item col-span-12 sm:col-span-4 sm:border-l sm:border-[rgba(255,255,255,0.08)] sm:pl-8">
+          <div className="hero-metric-item col-span-12 sm:col-span-4 sm:border-l sm:border-[#E5EAF5] sm:pl-8">
             <span
               ref={metricNum3}
-              className="font-serif text-[24px] font-normal text-[#F4F6FA] block mb-1 tabular-nums"
+              className="font-sans text-[26px] font-bold text-[#111827] block mb-1 tabular-nums tracking-tight"
             >
               72h Deployment
             </span>
-            <p className="text-[14px] leading-relaxed text-[#9AA3B2]">
+            <p className="text-[14px] leading-relaxed text-[#64748B]">
               Account access, tracking setup, and SKU audit initiated within three business days.
             </p>
           </div>
@@ -218,14 +221,14 @@ export const Hero: React.FC = () => {
 
         {/* Subtle Animated Scroll Hint (Disappears after first scroll) */}
         <div
-          className={`flex flex-col items-center justify-center mt-10 transition-all duration-500 ${hasScrolled ? 'opacity-0 translate-y-3 pointer-events-none' : 'opacity-100 translate-y-0'
+          className={`flex flex-col items-center justify-center mt-12 transition-all duration-500 ${hasScrolled ? 'opacity-0 translate-y-3 pointer-events-none' : 'opacity-100 translate-y-0'
             }`}
           aria-hidden={hasScrolled}
         >
-          <span className="text-[11px] uppercase font-sans tracking-[0.2em] font-medium text-[#9AA3B2] mb-2.5">
+          <span className="text-[11px] uppercase font-sans tracking-[0.2em] font-semibold text-[#64748B] mb-2.5">
             Scroll to explore
           </span>
-          <div className="w-[1.5px] h-8 bg-gradient-to-b from-[#D4FF24] via-[#1558C9] to-transparent animate-pulse" />
+          <div className="w-[2px] h-8 bg-gradient-to-b from-[#3D5AFE] via-[#C6F432] to-transparent rounded-full animate-pulse" />
         </div>
       </div>
     </section>

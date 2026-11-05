@@ -47,12 +47,12 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
             y: '-100%',
             transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
           }}
-          className="fixed inset-0 z-[100] bg-[#030407] flex flex-col items-center justify-center select-none"
+          className="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center select-none"
         >
           {/* Top progress line */}
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-white/8">
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#E5EAF5]">
             <motion.div
-              className="h-full bg-[#1558C9]"
+              className="h-full bg-[#3D5AFE]"
               style={{ width: `${progress}%` }}
               transition={{ ease: 'easeOut', duration: 0.1 }}
             />
@@ -64,19 +64,19 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="w-14 h-14 border border-white/10 rounded-[12px] overflow-hidden shadow-xl"
+              className="w-14 h-14 border border-[#E5EAF5] rounded-[16px] overflow-hidden shadow-md shadow-[#3D5AFE]/5 bg-white p-0.5"
             >
               <img
                 src="/klido-logo.jpeg"
                 alt="Klido Logo"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-[14px]"
               />
             </motion.div>
 
             <div className="flex items-center gap-3">
-              <span className="font-serif text-[18px] text-[#F4F6FA] tracking-tight">Klido</span>
-              <span className="text-white/20">•</span>
-              <span className="font-mono text-[12px] text-[#9AA3B2] tabular-nums tracking-wider">
+              <span className="font-sans font-bold text-[18px] text-[#111827] tracking-tight">Klido</span>
+              <span className="text-[#64748B]/40">•</span>
+              <span className="font-mono text-[12px] text-[#64748B] tabular-nums tracking-wider font-medium">
                 {progress}%
               </span>
             </div>

@@ -218,13 +218,13 @@ export const StoryStage: React.FC<StoryStageProps> = ({ onSelectService }) => {
         if (!bar) return;
         gsap.set(bar, {
           height: idx === 0 ? 36 : 24,
-          backgroundColor: idx === 0 ? '#D4FF24' : 'rgba(255,255,255,0.12)',
+          backgroundColor: idx === 0 ? '#3D5AFE' : '#E5EAF5',
         });
       });
       progressTextRefs.current.forEach((txt, idx) => {
         if (!txt) return;
         gsap.set(txt, {
-          color: idx === 0 ? '#D4FF24' : 'rgba(154,163,178,0.5)',
+          color: idx === 0 ? '#3D5AFE' : '#94A3B8',
           fontWeight: idx === 0 ? '600' : '400',
         });
       });
@@ -297,16 +297,16 @@ export const StoryStage: React.FC<StoryStageProps> = ({ onSelectService }) => {
 
       // Progress indicator 0 -> 1
       if (progressBarRefs.current[0]) {
-        masterTimeline.to(progressBarRefs.current[0], { height: 24, backgroundColor: 'rgba(255,255,255,0.12)', duration: 0.3 }, 0.85);
+        masterTimeline.to(progressBarRefs.current[0], { height: 24, backgroundColor: '#E5EAF5', duration: 0.3 }, 0.85);
       }
       if (progressBarRefs.current[1]) {
-        masterTimeline.to(progressBarRefs.current[1], { height: 36, backgroundColor: '#D4FF24', duration: 0.3 }, 0.85);
+        masterTimeline.to(progressBarRefs.current[1], { height: 36, backgroundColor: '#3D5AFE', duration: 0.3 }, 0.85);
       }
       if (progressTextRefs.current[0]) {
-        masterTimeline.to(progressTextRefs.current[0], { color: 'rgba(154,163,178,0.5)', fontWeight: '400', duration: 0.3 }, 0.85);
+        masterTimeline.to(progressTextRefs.current[0], { color: '#94A3B8', fontWeight: '400', duration: 0.3 }, 0.85);
       }
       if (progressTextRefs.current[1]) {
-        masterTimeline.to(progressTextRefs.current[1], { color: '#D4FF24', fontWeight: '600', duration: 0.3 }, 0.85);
+        masterTimeline.to(progressTextRefs.current[1], { color: '#3D5AFE', fontWeight: '600', duration: 0.3 }, 0.85);
       }
 
       // Phone turns 120deg on Y and settles front-facing
@@ -380,16 +380,16 @@ export const StoryStage: React.FC<StoryStageProps> = ({ onSelectService }) => {
 
       // Progress indicator 1 -> 2
       if (progressBarRefs.current[1]) {
-        masterTimeline.to(progressBarRefs.current[1], { height: 24, backgroundColor: 'rgba(255,255,255,0.12)', duration: 0.3 }, 1.85);
+        masterTimeline.to(progressBarRefs.current[1], { height: 24, backgroundColor: '#E5EAF5', duration: 0.3 }, 1.85);
       }
       if (progressBarRefs.current[2]) {
-        masterTimeline.to(progressBarRefs.current[2], { height: 36, backgroundColor: '#D4FF24', duration: 0.3 }, 1.85);
+        masterTimeline.to(progressBarRefs.current[2], { height: 36, backgroundColor: '#3D5AFE', duration: 0.3 }, 1.85);
       }
       if (progressTextRefs.current[1]) {
-        masterTimeline.to(progressTextRefs.current[1], { color: 'rgba(154,163,178,0.5)', fontWeight: '400', duration: 0.3 }, 1.85);
+        masterTimeline.to(progressTextRefs.current[1], { color: '#94A3B8', fontWeight: '400', duration: 0.3 }, 1.85);
       }
       if (progressTextRefs.current[2]) {
-        masterTimeline.to(progressTextRefs.current[2], { color: '#D4FF24', fontWeight: '600', duration: 0.3 }, 1.85);
+        masterTimeline.to(progressTextRefs.current[2], { color: '#3D5AFE', fontWeight: '600', duration: 0.3 }, 1.85);
       }
 
       // Phone tilts (rotX -10deg, scale 1.1, z 0.25)
@@ -456,16 +456,16 @@ export const StoryStage: React.FC<StoryStageProps> = ({ onSelectService }) => {
 
       // Progress indicator 2 -> 3
       if (progressBarRefs.current[2]) {
-        masterTimeline.to(progressBarRefs.current[2], { height: 24, backgroundColor: 'rgba(255,255,255,0.12)', duration: 0.3 }, 2.85);
+        masterTimeline.to(progressBarRefs.current[2], { height: 24, backgroundColor: '#E5EAF5', duration: 0.3 }, 2.85);
       }
       if (progressBarRefs.current[3]) {
-        masterTimeline.to(progressBarRefs.current[3], { height: 36, backgroundColor: '#D4FF24', duration: 0.3 }, 2.85);
+        masterTimeline.to(progressBarRefs.current[3], { height: 36, backgroundColor: '#3D5AFE', duration: 0.3 }, 2.85);
       }
       if (progressTextRefs.current[2]) {
-        masterTimeline.to(progressTextRefs.current[2], { color: 'rgba(154,163,178,0.5)', fontWeight: '400', duration: 0.3 }, 2.85);
+        masterTimeline.to(progressTextRefs.current[2], { color: '#94A3B8', fontWeight: '400', duration: 0.3 }, 2.85);
       }
       if (progressTextRefs.current[3]) {
-        masterTimeline.to(progressTextRefs.current[3], { color: '#D4FF24', fontWeight: '600', duration: 0.3 }, 2.85);
+        masterTimeline.to(progressTextRefs.current[3], { color: '#3D5AFE', fontWeight: '600', duration: 0.3 }, 2.85);
       }
 
       // Phone straightens, shifts slightly left, scale 0.98
@@ -599,30 +599,30 @@ export const StoryStage: React.FC<StoryStageProps> = ({ onSelectService }) => {
   // PREFERS-REDUCED-MOTION: Render clean stacked dark sections
   if (reducedMotion) {
     return (
-      <section id="services" className="py-20 bg-[#030407]">
+      <section id="services" className="py-20 bg-white">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8 space-y-16">
           {stages.map((stage) => (
             <div
               key={stage.id}
-              className="p-8 bg-[#0B0F18] border border-white/8 rounded-[2px] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+              className="p-8 bg-white border border-[#E5EAF5] rounded-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-xs"
             >
               <div className="lg:col-span-7">
-                <span className="text-[12px] uppercase font-mono tracking-[0.08em] font-semibold text-[#D4FF24] block mb-2">
+                <span className="text-[12px] uppercase font-mono tracking-[0.08em] font-semibold text-[#3D5AFE] block mb-2">
                   {stage.label}
                 </span>
-                <h2 className="font-serif text-[36px] text-[#F4F6FA] mb-4">
+                <h2 className="font-sans text-[36px] font-bold text-[#111827] mb-4">
                   {stage.headlinePrefix}
-                  <span className="text-[#D4FF24] underline decoration-2">{stage.underlineWord}</span>
+                  <span className="text-[#3D5AFE] underline decoration-[#C6F432] decoration-4">{stage.underlineWord}</span>
                   {stage.headlineSuffix}
                 </h2>
-                <p className="text-[16px] text-[#9AA3B2] max-w-[60ch] mb-6">{stage.desc}</p>
-                <div className="text-[24px] font-price text-[#F4F6FA] font-bold mb-4">
+                <p className="text-[16px] text-[#64748B] max-w-[60ch] mb-6">{stage.desc}</p>
+                <div className="text-[24px] font-price text-[#111827] font-bold mb-4">
                   ₹{stage.priceValue.toLocaleString()} / mo
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                   {stage.points.map((pt, i) => (
-                    <div key={i} className="flex items-start gap-2 text-[14px] text-[#F4F6FA]">
-                      <CheckCircle2 className="w-4 h-4 text-[#1558C9] shrink-0 mt-0.5" />
+                    <div key={i} className="flex items-start gap-2 text-[14px] text-[#111827]">
+                      <CheckCircle2 className="w-4 h-4 text-[#3D5AFE] shrink-0 mt-0.5" />
                       <span>{pt}</span>
                     </div>
                   ))}
@@ -632,7 +632,7 @@ export const StoryStage: React.FC<StoryStageProps> = ({ onSelectService }) => {
                 <img
                   src={saanjhCandles}
                   alt="Service Creative Preview"
-                  className="w-full max-w-[340px] h-[340px] object-cover rounded-xl border border-white/8 shadow-2xl"
+                  className="w-full max-w-[340px] h-[340px] object-cover rounded-2xl border border-[#E5EAF5] shadow-md"
                 />
               </div>
             </div>
@@ -643,7 +643,7 @@ export const StoryStage: React.FC<StoryStageProps> = ({ onSelectService }) => {
   }
 
   return (
-    <section ref={storySectionRef} className="relative w-full bg-[#030407]">
+    <section ref={storySectionRef} className="relative w-full bg-[#F3F6FF]">
       {/* Anchor Targets for Navbar Links */}
       <div id="services" className="absolute top-0 w-full h-[100px] pointer-events-none scroll-mt-20" />
       <div id="work" className="absolute top-[26%] w-full h-[100px] pointer-events-none scroll-mt-20" />
@@ -652,7 +652,7 @@ export const StoryStage: React.FC<StoryStageProps> = ({ onSelectService }) => {
       {/* Pinned 100vh Stage Window (Text Column + Phone Canvas + Floating Cards pinned together) */}
       <div
         ref={pinnedStageRef}
-        className="w-full h-screen overflow-hidden flex items-center relative z-20 bg-[#030407]"
+        className="w-full h-screen overflow-hidden flex items-center relative z-20 bg-gradient-to-b from-white via-[#F3F6FF] to-white"
       >
         <div className="max-w-[1340px] w-full mx-auto px-6 sm:px-8 lg:px-12 h-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 relative">
           
@@ -670,10 +670,10 @@ export const StoryStage: React.FC<StoryStageProps> = ({ onSelectService }) => {
                   ref={(el) => {
                     progressBarRefs.current[idx] = el;
                   }}
-                  className="w-[2px] rounded-full transition-all duration-200"
+                  className="w-[2.5px] rounded-full transition-all duration-200"
                   style={{
                     height: idx === 0 ? '36px' : '24px',
-                    backgroundColor: idx === 0 ? '#D4FF24' : 'rgba(255,255,255,0.12)',
+                    backgroundColor: idx === 0 ? '#3D5AFE' : '#E5EAF5',
                   }}
                 />
                 <span
@@ -682,7 +682,7 @@ export const StoryStage: React.FC<StoryStageProps> = ({ onSelectService }) => {
                   }}
                   className="font-mono text-[11px] tracking-[0.08em] transition-colors duration-200"
                   style={{
-                    color: idx === 0 ? '#D4FF24' : 'rgba(154,163,178,0.5)',
+                    color: idx === 0 ? '#3D5AFE' : '#94A3B8',
                     fontWeight: idx === 0 ? '600' : '400',
                   }}
                 >
@@ -696,7 +696,7 @@ export const StoryStage: React.FC<StoryStageProps> = ({ onSelectService }) => {
           <div
             className={`w-full lg:w-[46%] lg:pl-10 xl:pl-12 relative z-20 pointer-events-auto flex items-center ${
               isMobile
-                ? 'order-2 h-[45vh] bg-[#0B0F18]/95 backdrop-blur-md p-5 rounded-[2px] border border-white/8 mt-2 overflow-y-auto'
+                ? 'order-2 h-[45vh] bg-white/95 backdrop-blur-md p-5 rounded-2xl border border-[#E5EAF5] mt-2 overflow-y-auto shadow-sm'
                 : 'h-[520px]'
             }`}
           >
@@ -717,61 +717,61 @@ export const StoryStage: React.FC<StoryStageProps> = ({ onSelectService }) => {
                       pointerEvents: isInitial ? 'auto' : 'none',
                     }}
                   >
-                    {/* Top: 24px lime horizontal line (#D4FF24) + label + badge */}
+                    {/* Top: 24px electric blue horizontal line + label + badge */}
                     <div className="flex items-center gap-2.5 mb-3">
-                      <span className="stage-label-line inline-block w-6 h-[2px] bg-[#D4FF24] origin-left" />
-                      <span className="stage-label-text text-[12px] uppercase font-mono tracking-[0.1em] font-bold text-[#D4FF24]">
+                      <span className="stage-label-line inline-block w-6 h-[2px] bg-[#3D5AFE] origin-left rounded-full" />
+                      <span className="stage-label-text text-[12px] uppercase font-mono tracking-[0.1em] font-bold text-[#3D5AFE]">
                         {stage.label}
                       </span>
-                      <span className="text-white/20">•</span>
-                      <span className="text-[11px] uppercase tracking-[0.08em] text-[#9AA3B2] font-medium">
+                      <span className="text-[#64748B]/40">•</span>
+                      <span className="text-[11px] uppercase tracking-[0.08em] text-[#64748B] font-semibold">
                         {stage.badge}
                       </span>
                     </div>
 
-                    {/* Headline: 50px serif font-normal, 1.08 line-height, lime underlined keyword */}
-                    <h2 className="stage-headline font-serif text-[32px] sm:text-[42px] lg:text-[48px] xl:text-[50px] font-normal text-[#F4F6FA] leading-[1.08] tracking-[-0.02em] mb-4">
+                    {/* Headline: Modern bold sans-serif with lime green underline highlight */}
+                    <h2 className="stage-headline font-sans text-[32px] sm:text-[40px] lg:text-[44px] xl:text-[46px] font-bold text-[#111827] leading-[1.08] tracking-[-0.03em] mb-4">
                       {stage.headlinePrefix}
                       <span className="relative inline-block whitespace-nowrap">
                         {stage.underlineWord}
-                        <span className="stage-underline absolute bottom-0 left-0 w-full h-[2px] bg-[#D4FF24] origin-left scale-x-0" />
+                        <span className="stage-underline absolute bottom-0 left-0 w-full h-[3px] bg-[#C6F432] origin-left scale-x-0 rounded-full" />
                       </span>
                       {stage.headlineSuffix}
                     </h2>
 
-                    {/* Description: 16px text-white/70, max-w-[46ch], 1.6 line-height */}
-                    <p className="stage-desc text-[15px] sm:text-[16px] leading-[1.6] text-white/70 max-w-[46ch] mb-5">
+                    {/* Description: 16px text-[#64748B], max-w-[46ch], 1.6 line-height */}
+                    <p className="stage-desc text-[15px] sm:text-[16px] leading-[1.65] text-[#64748B] max-w-[46ch] mb-5 font-normal">
                       {stage.desc}
                     </p>
 
-                    {/* Divider: 1px border-white/8 */}
-                    <div className="w-full h-px bg-white/8 mb-5" />
+                    {/* Divider: 1px border-[#E5EAF5] */}
+                    <div className="w-full h-px bg-[#E5EAF5] mb-5" />
 
                     {/* 2x2 Feature list: wraps to 2 lines cleanly, no truncate, no nowrap, gap 16px */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
                       {stage.points.map((pt, i) => (
                         <div key={i} className="flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-[#1558C9] shrink-0 mt-0.5" />
-                          <span className="text-[14px] sm:text-[15px] leading-[1.4] text-[#F4F6FA] font-normal break-words">
+                          <CheckCircle2 className="w-4 h-4 text-[#3D5AFE] shrink-0 mt-0.5" />
+                          <span className="text-[14px] sm:text-[15px] leading-[1.4] text-[#111827] font-medium break-words">
                             {pt}
                           </span>
                         </div>
                       ))}
                     </div>
 
-                    {/* Divider: 1px border-white/8 */}
-                    <div className="w-full h-px bg-white/8 mb-5" />
+                    {/* Divider: 1px border-[#E5EAF5] */}
+                    <div className="w-full h-px bg-[#E5EAF5] mb-5" />
 
-                    {/* Price row: 24px bold mono + "Select service" link aligned right */}
+                    {/* Price row: font-price bold + "Select service" link aligned right */}
                     <div className="flex items-center justify-between gap-4 pt-1">
                       <div>
-                        <div className="font-price text-[22px] sm:text-[24px] font-bold text-[#F4F6FA] flex items-baseline">
+                        <div className="font-price text-[22px] sm:text-[24px] font-bold text-[#111827] flex items-baseline">
                           <span>₹{stage.priceValue.toLocaleString()}</span>
-                          <span className="text-[#9AA3B2] text-[14px] font-normal ml-1.5 font-sans">
+                          <span className="text-[#64748B] text-[14px] font-normal ml-1.5 font-sans">
                             / mo
                           </span>
                         </div>
-                        <span className="text-[12px] text-[#9AA3B2] block mt-0.5">{stage.priceNote}</span>
+                        <span className="text-[12px] text-[#64748B] block mt-0.5">{stage.priceNote}</span>
                       </div>
 
                       {/* Small text link "Select service" with arrow that slides 4px on hover */}
@@ -784,10 +784,10 @@ export const StoryStage: React.FC<StoryStageProps> = ({ onSelectService }) => {
                             onSelectService(stage.id);
                           }
                         }}
-                        className="group/cta inline-flex items-center gap-2 text-[14px] font-medium text-[#F4F6FA] hover:text-[#D4FF24] transition-colors cursor-pointer py-2 self-center shrink-0"
+                        className="group/cta inline-flex items-center gap-2 text-[14px] font-semibold text-[#111827] hover:text-[#3D5AFE] transition-colors cursor-pointer py-2 self-center shrink-0"
                       >
                         <span>Select service</span>
-                        <ArrowRight className="w-4 h-4 text-[#D4FF24] transition-transform duration-200 ease-out group-hover/cta:translate-x-1" />
+                        <ArrowRight className="w-4 h-4 text-[#3D5AFE] transition-transform duration-200 ease-out group-hover/cta:translate-x-1" />
                       </button>
                     </div>
                   </div>
@@ -819,49 +819,49 @@ export const StoryStage: React.FC<StoryStageProps> = ({ onSelectService }) => {
                   style={{ opacity: idx === 0 ? 1 : 0 }}
                 >
                   {/* Card 1: Top-Left of phone (at least 24px clearance from left column edge) */}
-                  <div className="card-left absolute left-6 xl:left-8 top-[16%] xl:top-[18%] bg-[#0B0F18]/85 backdrop-blur-md border border-white/10 rounded-xl p-3 sm:p-3.5 shadow-2xl min-w-[155px] max-w-[200px]">
+                  <div className="card-left absolute left-6 xl:left-8 top-[16%] xl:top-[18%] bg-white/95 backdrop-blur-md border border-[#E5EAF5] rounded-2xl p-3 sm:p-3.5 shadow-[0_12px_32px_rgba(0,0,0,0.06)] min-w-[155px] max-w-[200px]">
                     <div className="flex items-center justify-between gap-2 mb-1">
-                      <span className="text-[10px] font-mono uppercase tracking-[0.08em] text-[#9AA3B2]">
+                      <span className="text-[10px] font-mono uppercase tracking-[0.08em] text-[#64748B] font-semibold">
                         {stage.cards[0].label}
                       </span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#1558C9]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#3D5AFE]" />
                     </div>
-                    <div className="font-mono text-[16px] sm:text-[18px] font-semibold text-[#F4F6FA] tracking-tight">
+                    <div className="font-sans text-[16px] sm:text-[18px] font-bold text-[#111827] tracking-tight">
                       {stage.cards[0].value}
                     </div>
-                    <div className="text-[11px] text-[#9AA3B2]/80 mt-0.5 leading-snug">
+                    <div className="text-[11px] text-[#64748B] mt-0.5 leading-snug">
                       {stage.cards[0].note}
                     </div>
                   </div>
 
                   {/* Card 2: Bottom-Left of phone (at least 24px clearance from left column edge) */}
-                  <div className="card-left absolute left-6 xl:left-8 bottom-[18%] xl:bottom-[20%] bg-[#0B0F18]/85 backdrop-blur-md border border-white/10 rounded-xl p-3 sm:p-3.5 shadow-2xl min-w-[155px] max-w-[200px]">
+                  <div className="card-left absolute left-6 xl:left-8 bottom-[18%] xl:bottom-[20%] bg-white/95 backdrop-blur-md border border-[#E5EAF5] rounded-2xl p-3 sm:p-3.5 shadow-[0_12px_32px_rgba(0,0,0,0.06)] min-w-[155px] max-w-[200px]">
                     <div className="flex items-center justify-between gap-2 mb-1">
-                      <span className="text-[10px] font-mono uppercase tracking-[0.08em] text-[#9AA3B2]">
+                      <span className="text-[10px] font-mono uppercase tracking-[0.08em] text-[#64748B] font-semibold">
                         {stage.cards[1].label}
                       </span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#1558C9]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#3D5AFE]" />
                     </div>
-                    <div className="font-mono text-[16px] sm:text-[18px] font-semibold text-[#F4F6FA] tracking-tight">
+                    <div className="font-sans text-[16px] sm:text-[18px] font-bold text-[#111827] tracking-tight">
                       {stage.cards[1].value}
                     </div>
-                    <div className="text-[11px] text-[#9AA3B2]/80 mt-0.5 leading-snug">
+                    <div className="text-[11px] text-[#64748B] mt-0.5 leading-snug">
                       {stage.cards[1].note}
                     </div>
                   </div>
 
                   {/* Card 3: Right of phone (hidden under 1200px to keep exactly 2 cards on <1200px) */}
-                  <div className="card-right hidden xl:flex flex-col absolute right-6 xl:right-8 top-[36%] xl:top-[38%] bg-[#0B0F18]/85 backdrop-blur-md border border-white/10 rounded-xl p-3 sm:p-3.5 shadow-2xl min-w-[155px] max-w-[200px]">
+                  <div className="card-right hidden xl:flex flex-col absolute right-6 xl:right-8 top-[36%] xl:top-[38%] bg-white/95 backdrop-blur-md border border-[#E5EAF5] rounded-2xl p-3 sm:p-3.5 shadow-[0_12px_32px_rgba(0,0,0,0.06)] min-w-[155px] max-w-[200px]">
                     <div className="flex items-center justify-between gap-2 mb-1">
-                      <span className="text-[10px] font-mono uppercase tracking-[0.08em] text-[#9AA3B2]">
+                      <span className="text-[10px] font-mono uppercase tracking-[0.08em] text-[#64748B] font-semibold">
                         {stage.cards[2].label}
                       </span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#1558C9]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#3D5AFE]" />
                     </div>
-                    <div className="font-mono text-[16px] sm:text-[18px] font-semibold text-[#F4F6FA] tracking-tight">
+                    <div className="font-sans text-[16px] sm:text-[18px] font-bold text-[#111827] tracking-tight">
                       {stage.cards[2].value}
                     </div>
-                    <div className="text-[11px] text-[#9AA3B2]/80 mt-0.5 leading-snug">
+                    <div className="text-[11px] text-[#64748B] mt-0.5 leading-snug">
                       {stage.cards[2].note}
                     </div>
                   </div>

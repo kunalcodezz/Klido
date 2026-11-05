@@ -18,7 +18,7 @@ export const PricingTab: React.FC<PricingTabProps> = ({
   return (
     <div
       className={cn(
-        "inline-flex p-1 bg-[#0B0F18] border border-white/8 rounded-[2px]",
+        "inline-flex p-1 bg-[#F3F6FF] border border-[#E5EAF5] rounded-full",
         className
       )}
     >
@@ -30,14 +30,14 @@ export const PricingTab: React.FC<PricingTabProps> = ({
             type="button"
             onClick={() => onFrequencyChange(frequency)}
             className={cn(
-              "relative px-5 py-2 text-[14px] font-medium transition-colors duration-150 ease-out rounded-[2px] cursor-pointer focus:outline-none",
-              isSelected ? "text-white" : "text-[#9AA3B2] hover:text-[#F4F6FA]"
+              "relative px-5 py-2 text-[13px] font-semibold transition-colors duration-150 ease-out rounded-full cursor-pointer focus:outline-none",
+              isSelected ? "text-white" : "text-[#64748B] hover:text-[#111827]"
             )}
           >
             {isSelected && (
               <motion.div
                 layoutId="pricing-tab-indicator"
-                className="absolute inset-0 bg-[#1558C9] rounded-[2px] shadow-none"
+                className="absolute inset-0 bg-[#3D5AFE] rounded-full shadow-sm shadow-[#3D5AFE]/25"
                 transition={{ duration: 0.2, ease: "easeOut" }}
               />
             )}

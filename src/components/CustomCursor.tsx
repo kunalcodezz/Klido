@@ -70,13 +70,11 @@ export const CustomCursor: React.FC = () => {
   return (
     <div
       ref={cursorRef}
-      className={`fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[999] rounded-full transition-all duration-200 ease-out ${
-        !isVisible ? 'opacity-0' : 'opacity-100'
-      } ${
-        isHovered
-          ? 'w-10 h-10 border border-[#D4FF24] bg-[#D4FF24]/10'
-          : 'w-2 h-2 bg-[#D4FF24]'
-      }`}
+      className={`fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[999] rounded-full transition-all duration-200 ease-out ${!isVisible ? 'opacity-0' : 'opacity-100'
+        } ${isHovered
+          ? 'w-10 h-10 border-2 border-[#3D5AFE] bg-[#3D5AFE]/10'
+          : 'w-2.5 h-2.5 bg-[#3D5AFE]'
+        }`}
     />
   );
 };

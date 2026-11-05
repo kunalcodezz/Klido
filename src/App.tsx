@@ -45,7 +45,14 @@ export default function App() {
       {/* Desktop 60fps Custom Cursor */}
       <CustomCursor />
 
-      <div className="relative z-10 min-h-screen text-[#F4F6FA] font-sans selection:bg-[#1558C9] selection:text-[#F4F6FA] overflow-x-hidden antialiased bg-transparent">
+      <div className="relative z-10 min-h-screen text-[#111827] font-sans selection:bg-[#E8EDFF] selection:text-[#3D5AFE] overflow-x-hidden antialiased bg-white">
+        {/* Soft Ambient Blue Background Gradients (No purple/violet) */}
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+          <div className="absolute -top-[25%] left-1/2 -translate-x-1/2 w-[1000px] h-[650px] bg-[radial-gradient(ellipse_at_center,rgba(61,90,254,0.06)_0%,transparent_70%)] blur-2xl" />
+          <div className="absolute top-[45%] -left-[10%] w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(61,90,254,0.035)_0%,transparent_70%)] blur-3xl" />
+          <div className="absolute top-[75%] -right-[10%] w-[700px] h-[700px] bg-[radial-gradient(ellipse_at_center,rgba(61,90,254,0.04)_0%,transparent_70%)] blur-3xl" />
+        </div>
+
         {/* Smart Navbar with hairline border and layoutId sliding underline */}
         <Navbar
           onOpenContact={() => {

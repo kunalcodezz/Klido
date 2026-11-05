@@ -161,10 +161,10 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
       {/* Segmented Toggle Control */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-12">
         <div>
-          <span className="text-[12px] uppercase font-sans tracking-[0.08em] font-medium text-[#9AA3B2] block mb-1">
+          <span className="text-[12px] uppercase font-mono tracking-[0.1em] font-semibold text-[#3D5AFE] block mb-1">
             Pricing Model
           </span>
-          <p className="text-[14px] text-[#F4F6FA]">
+          <p className="text-[14px] text-[#64748B]">
             Switch between bundled retainers and single capability pricing.
           </p>
         </div>

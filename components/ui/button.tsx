@@ -4,22 +4,22 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[2px] text-[14px] font-medium leading-none transition-colors duration-150 ease-out focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#2F7FD1] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 cursor-pointer",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-[14px] font-semibold leading-none transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3D5AFE] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 cursor-pointer",
   {
     variants: {
       variant: {
         default:
-          "bg-[#2F7FD1] text-white hover:bg-[#256bb3]",
+          "bg-[#3D5AFE] text-white hover:bg-[#2F47D4] shadow-sm shadow-[#3D5AFE]/25",
         secondary:
-          "border border-[#D5E0EC] bg-transparent text-[#0F1B2D] hover:border-[#2F7FD1]",
+          "border border-[#E5EAF5] bg-white text-[#111827] hover:border-[#3D5AFE] hover:bg-[#F3F6FF]",
         outline:
-          "border border-[#D5E0EC] bg-white text-[#0F1B2D] hover:border-[#2F7FD1]",
+          "border border-[#E5EAF5] bg-white text-[#111827] hover:border-[#3D5AFE]",
         inverted:
-          "bg-white text-[#0F1B2D] hover:bg-[#F7FAFD] border border-white",
+          "bg-white text-[#111827] hover:bg-[#F3F6FF] border border-[#E5EAF5]",
         ghost:
-          "hover:bg-[#EEF4FA] text-[#0F1B2D]",
+          "hover:bg-[#F3F6FF] text-[#111827]",
         link:
-          "text-[#2F7FD1] underline-offset-4 hover:underline",
+          "text-[#3D5AFE] underline-offset-4 hover:underline",
       },
       size: {
         default: "h-12 px-6",

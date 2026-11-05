@@ -162,27 +162,27 @@ ${formData.message || 'Ready for audit and alignment.'}`;
   };
 
   return (
-    <section ref={containerRef} id="contact" className="py-[72px] lg:py-32 bg-transparent relative z-10 border-t border-white/8">
+    <section ref={containerRef} id="contact" className="py-[72px] lg:py-32 bg-white relative z-10 border-t border-[#E5EAF5]">
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         <div className="grid grid-cols-12 gap-8 items-start">
           {/* Left Column: Direct Agency Information */}
-          <div className="col-span-12 lg:col-span-5 bg-[#0B0F18]/95 backdrop-blur-xs p-6 sm:p-8 rounded-[2px] border border-white/8">
-            <span className="text-[12px] uppercase font-sans tracking-[0.08em] font-medium text-[#9AA3B2] block mb-3">
+          <div className="col-span-12 lg:col-span-5 bg-[#F3F6FF] p-6 sm:p-8 rounded-2xl border border-[#E5EAF5] shadow-xs">
+            <span className="text-[12px] uppercase font-mono tracking-[0.1em] font-semibold text-[#3D5AFE] block mb-3">
               Direct Contact
             </span>
             <h2
               ref={headlineRef}
-              className="font-serif text-[32px] sm:text-[56px] font-normal text-[#F4F6FA] leading-[1.08] tracking-[-0.02em] mb-4"
+              className="font-sans font-bold text-[32px] sm:text-[44px] text-[#111827] leading-[1.08] tracking-[-0.03em] mb-4"
             >
               Ready to scale without losing control?
             </h2>
-            <p className="text-[16px] leading-[1.6] text-[#9AA3B2] max-w-[45ch] mb-10">
+            <p className="text-[15px] leading-[1.65] text-[#64748B] max-w-[45ch] mb-10">
               Complimentary 20-minute margin and unit economics review with our senior team.
             </p>
 
-            <div className="space-y-6 pt-6 border-t border-white/8">
+            <div className="space-y-6 pt-6 border-t border-[#E5EAF5]">
               <div>
-                <span className="text-[12px] uppercase font-sans tracking-[0.08em] text-[#9AA3B2] block mb-1">
+                <span className="text-[12px] uppercase font-mono tracking-[0.08em] font-semibold text-[#64748B] block mb-1">
                   WhatsApp Direct Desk
                 </span>
                 <a
@@ -191,43 +191,43 @@ ${formData.message || 'Ready for audit and alignment.'}`;
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-mono text-[16px] tabular-nums text-[#F4F6FA] hover:text-[#D4FF24] hover:underline underline-offset-4"
+                  className="font-mono text-[16px] font-semibold tabular-nums text-[#111827] hover:text-[#3D5AFE] hover:underline underline-offset-4"
                 >
                   {AGENCY_CONTACT.phoneDisplay}
                 </a>
               </div>
 
               <div>
-                <span className="text-[12px] uppercase font-sans tracking-[0.08em] text-[#9AA3B2] block mb-1">
+                <span className="text-[12px] uppercase font-mono tracking-[0.08em] font-semibold text-[#64748B] block mb-1">
                   Email
                 </span>
                 <a
                   href={`mailto:${AGENCY_CONTACT.email}`}
-                  className="text-[16px] text-[#F4F6FA] hover:text-[#D4FF24] hover:underline underline-offset-4"
+                  className="text-[15px] font-medium text-[#111827] hover:text-[#3D5AFE] hover:underline underline-offset-4"
                 >
                   {AGENCY_CONTACT.email}
                 </a>
               </div>
 
               <div>
-                <span className="text-[12px] uppercase font-sans tracking-[0.08em] text-[#9AA3B2] block mb-1">
+                <span className="text-[12px] uppercase font-mono tracking-[0.08em] font-semibold text-[#64748B] block mb-1">
                   Instagram
                 </span>
                 <a
                   href={AGENCY_CONTACT.instagramUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-[16px] text-[#F4F6FA] hover:text-[#D4FF24] hover:underline underline-offset-4"
+                  className="text-[15px] font-medium text-[#111827] hover:text-[#3D5AFE] hover:underline underline-offset-4"
                 >
                   {AGENCY_CONTACT.instagram}
                 </a>
               </div>
 
               <div>
-                <span className="text-[12px] uppercase font-sans tracking-[0.08em] text-[#9AA3B2] block mb-1">
+                <span className="text-[12px] uppercase font-mono tracking-[0.08em] font-semibold text-[#64748B] block mb-1">
                   Operating Hubs
                 </span>
-                <p className="text-[14px] text-[#F4F6FA]">
+                <p className="text-[14px] text-[#111827] font-medium">
                   {AGENCY_CONTACT.hubs}
                 </p>
               </div>
@@ -235,22 +235,22 @@ ${formData.message || 'Ready for audit and alignment.'}`;
           </div>
 
           {/* Right Column: Form with magnetic submit button */}
-          <div className="col-span-12 lg:col-span-7 bg-[#0B0F18] border border-white/8 rounded-[2px] p-8 sm:p-10 transition-shadow duration-200">
+          <div className="col-span-12 lg:col-span-7 bg-[#F8FAFC] border border-[#E5EAF5] rounded-2xl p-8 sm:p-10 shadow-sm transition-shadow duration-200">
             {submittedStatus === 'redirected' ? (
               <div className="py-8">
-                <span className="text-[12px] uppercase font-sans tracking-[0.08em] text-[#1558C9] block mb-2 font-medium">
+                <span className="text-[12px] uppercase font-mono tracking-[0.1em] text-[#3D5AFE] block mb-2 font-semibold">
                   Inquiry Dispatched
                 </span>
-                <h3 className="font-serif text-[32px] font-normal text-[#F4F6FA] mb-4">
+                <h3 className="font-sans text-[28px] sm:text-[32px] font-bold text-[#111827] mb-4 tracking-tight">
                   We have received your parameters.
                 </h3>
-                <p className="text-[16px] leading-[1.6] text-[#9AA3B2] max-w-[50ch] mb-8">
+                <p className="text-[15px] leading-[1.65] text-[#64748B] max-w-[50ch] mb-8">
                   WhatsApp draft opened. Our team will review your catalogue numbers and respond within one business day.
                 </p>
                 <button
                   type="button"
                   onClick={() => setSubmittedStatus('idle')}
-                  className="h-12 px-6 rounded-[2px] border border-white/20 text-[#F4F6FA] hover:border-[#1558C9] text-[14px] font-medium leading-none bg-transparent transition-colors duration-150 ease-out cursor-pointer"
+                  className="h-12 px-7 rounded-full border border-[#E5EAF5] bg-white text-[#111827] hover:border-[#3D5AFE] hover:text-[#3D5AFE] text-[14px] font-semibold leading-none transition-all duration-150 ease-out cursor-pointer shadow-xs"
                 >
                   Submit Another Inquiry
                 </button>
@@ -259,7 +259,7 @@ ${formData.message || 'Ready for audit and alignment.'}`;
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#F4F6FA] mb-2 font-medium">
+                    <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#111827] mb-2 font-semibold">
                       Full Name *
                     </label>
                     <input
@@ -267,13 +267,13 @@ ${formData.message || 'Ready for audit and alignment.'}`;
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Rohan Sharma"
-                      className="w-full h-12 px-4 rounded-[2px] bg-[#030407] border border-white/8 text-[14px] text-[#F4F6FA] placeholder-[#9AA3B2]/50 focus:outline-none focus:border-[#1558C9] transition-colors"
+                      className="w-full h-12 px-4 rounded-xl bg-white border border-[#E5EAF5] text-[14px] text-[#111827] placeholder-[#94A3B8] focus:outline-none focus:border-[#3D5AFE] focus:ring-2 focus:ring-[#3D5AFE]/20 transition-all shadow-xs"
                     />
-                    {errors.name && <p className="text-[12px] text-red-400 mt-1">{errors.name}</p>}
+                    {errors.name && <p className="text-[12px] text-red-500 mt-1">{errors.name}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#F4F6FA] mb-2 font-medium">
+                    <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#111827] mb-2 font-semibold">
                       Brand Name *
                     </label>
                     <input
@@ -281,15 +281,15 @@ ${formData.message || 'Ready for audit and alignment.'}`;
                       value={formData.brandName}
                       onChange={(e) => setFormData({ ...formData, brandName: e.target.value })}
                       placeholder="e.g. SpaceApparel"
-                      className="w-full h-12 px-4 rounded-[2px] bg-[#030407] border border-white/8 text-[14px] text-[#F4F6FA] placeholder-[#9AA3B2]/50 focus:outline-none focus:border-[#1558C9] transition-colors"
+                      className="w-full h-12 px-4 rounded-xl bg-white border border-[#E5EAF5] text-[14px] text-[#111827] placeholder-[#94A3B8] focus:outline-none focus:border-[#3D5AFE] focus:ring-2 focus:ring-[#3D5AFE]/20 transition-all shadow-xs"
                     />
-                    {errors.brandName && <p className="text-[12px] text-red-400 mt-1">{errors.brandName}</p>}
+                    {errors.brandName && <p className="text-[12px] text-red-500 mt-1">{errors.brandName}</p>}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#F4F6FA] mb-2 font-medium">
+                    <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#111827] mb-2 font-semibold">
                       Business Email *
                     </label>
                     <input
@@ -297,13 +297,13 @@ ${formData.message || 'Ready for audit and alignment.'}`;
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="rohan@spaceapparel.com"
-                      className="w-full h-12 px-4 rounded-[2px] bg-[#030407] border border-white/8 text-[14px] text-[#F4F6FA] placeholder-[#9AA3B2]/50 focus:outline-none focus:border-[#1558C9] transition-colors"
+                      className="w-full h-12 px-4 rounded-xl bg-white border border-[#E5EAF5] text-[14px] text-[#111827] placeholder-[#94A3B8] focus:outline-none focus:border-[#3D5AFE] focus:ring-2 focus:ring-[#3D5AFE]/20 transition-all shadow-xs"
                     />
-                    {errors.email && <p className="text-[12px] text-red-400 mt-1">{errors.email}</p>}
+                    {errors.email && <p className="text-[12px] text-red-500 mt-1">{errors.email}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#F4F6FA] mb-2 font-medium">
+                    <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#111827] mb-2 font-semibold">
                       Phone Number *
                     </label>
                     <input
@@ -311,14 +311,14 @@ ${formData.message || 'Ready for audit and alignment.'}`;
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+91 98000 12345"
-                      className="w-full h-12 px-4 rounded-[2px] bg-[#030407] border border-white/8 text-[14px] text-[#F4F6FA] placeholder-[#9AA3B2]/50 focus:outline-none focus:border-[#1558C9] transition-colors"
+                      className="w-full h-12 px-4 rounded-xl bg-white border border-[#E5EAF5] text-[14px] text-[#111827] placeholder-[#94A3B8] focus:outline-none focus:border-[#3D5AFE] focus:ring-2 focus:ring-[#3D5AFE]/20 transition-all shadow-xs"
                     />
-                    {errors.phone && <p className="text-[12px] text-red-400 mt-1">{errors.phone}</p>}
+                    {errors.phone && <p className="text-[12px] text-red-500 mt-1">{errors.phone}</p>}
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#F4F6FA] mb-2 font-medium">
+                  <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#111827] mb-2 font-semibold">
                     Website or Instagram URL
                   </label>
                   <input
@@ -326,12 +326,12 @@ ${formData.message || 'Ready for audit and alignment.'}`;
                     value={formData.websiteOrInstagram}
                     onChange={(e) => setFormData({ ...formData, websiteOrInstagram: e.target.value })}
                     placeholder="https://yourbrand.com or @yourbrand"
-                    className="w-full h-12 px-4 rounded-[2px] bg-[#030407] border border-white/8 text-[14px] text-[#F4F6FA] placeholder-[#9AA3B2]/50 focus:outline-none focus:border-[#1558C9] transition-colors"
+                    className="w-full h-12 px-4 rounded-xl bg-white border border-[#E5EAF5] text-[14px] text-[#111827] placeholder-[#94A3B8] focus:outline-none focus:border-[#3D5AFE] focus:ring-2 focus:ring-[#3D5AFE]/20 transition-all shadow-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#F4F6FA] mb-2 font-medium">
+                  <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#111827] mb-2 font-semibold">
                     Services of Interest
                   </label>
                   <div className="grid grid-cols-2 gap-3">
@@ -340,17 +340,17 @@ ${formData.message || 'Ready for audit and alignment.'}`;
                       return (
                         <label
                           key={s.id}
-                          className={`p-3 border rounded-[2px] text-[12px] cursor-pointer flex items-center gap-2.5 transition-all select-none ${
+                          className={`p-3 border rounded-xl text-[12px] font-medium cursor-pointer flex items-center gap-2.5 transition-all select-none shadow-xs ${
                             isChecked
-                              ? 'border-[#1558C9] bg-[#1558C9]/20 text-[#F4F6FA]'
-                              : 'border-white/8 text-[#9AA3B2] hover:border-[#1558C9]'
+                              ? 'border-[#3D5AFE] bg-[#E8EDFF] text-[#111827]'
+                              : 'border-[#E5EAF5] text-[#64748B] hover:border-[#3D5AFE] bg-white'
                           }`}
                         >
                           <input
                             type="checkbox"
                             checked={isChecked}
                             onChange={() => toggleFormService(s.id)}
-                            className="rounded-[2px] border-white/20 text-[#1558C9] focus:ring-[#1558C9]"
+                            className="rounded-[4px] border-[#CBD5E1] text-[#3D5AFE] focus:ring-[#3D5AFE]"
                           />
                           <span>{s.name}</span>
                         </label>
@@ -360,23 +360,23 @@ ${formData.message || 'Ready for audit and alignment.'}`;
                 </div>
 
                 <div>
-                  <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#F4F6FA] mb-2 font-medium">
+                  <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#111827] mb-2 font-semibold">
                     Current Monthly Revenue / Ad Spend
                   </label>
                   <select
                     value={formData.monthlyBudget}
                     onChange={(e) => setFormData({ ...formData, monthlyBudget: e.target.value })}
-                    className="w-full h-12 px-4 rounded-[2px] bg-[#030407] border border-white/8 text-[14px] text-[#F4F6FA] focus:outline-none focus:border-[#1558C9] transition-colors cursor-pointer"
+                    className="w-full h-12 px-4 rounded-xl bg-white border border-[#E5EAF5] text-[14px] text-[#111827] focus:outline-none focus:border-[#3D5AFE] focus:ring-2 focus:ring-[#3D5AFE]/20 transition-all cursor-pointer shadow-xs"
                   >
-                    <option value="under-1L" className="bg-[#0B0F18] text-[#F4F6FA]">Under ₹1 Lakh/month (Early-Stage)</option>
-                    <option value="1L-5L" className="bg-[#0B0F18] text-[#F4F6FA]">₹1 Lakh – ₹5 Lakh/month (Scaling)</option>
-                    <option value="5L-15L" className="bg-[#0B0F18] text-[#F4F6FA]">₹5 Lakh – ₹15 Lakh/month (Growth)</option>
-                    <option value="15L-plus" className="bg-[#0B0F18] text-[#F4F6FA]">₹15 Lakh+/month (Established)</option>
+                    <option value="under-1L" className="bg-white text-[#111827]">Under ₹1 Lakh/month (Early-Stage)</option>
+                    <option value="1L-5L" className="bg-white text-[#111827]">₹1 Lakh – ₹5 Lakh/month (Scaling)</option>
+                    <option value="5L-15L" className="bg-white text-[#111827]">₹5 Lakh – ₹15 Lakh/month (Growth)</option>
+                    <option value="15L-plus" className="bg-white text-[#111827]">₹15 Lakh+/month (Established)</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#F4F6FA] mb-2 font-medium">
+                  <label className="block text-[12px] uppercase font-sans tracking-[0.08em] text-[#111827] mb-2 font-semibold">
                     Operational Objectives
                   </label>
                   <textarea
@@ -384,7 +384,7 @@ ${formData.message || 'Ready for audit and alignment.'}`;
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Current order volume, return rate, or margin targets..."
-                    className="w-full p-4 rounded-[2px] bg-[#030407] border border-white/8 text-[14px] text-[#F4F6FA] placeholder-[#9AA3B2]/50 focus:outline-none focus:border-[#1558C9] transition-colors"
+                    className="w-full p-4 rounded-xl bg-white border border-[#E5EAF5] text-[14px] text-[#111827] placeholder-[#94A3B8] focus:outline-none focus:border-[#3D5AFE] focus:ring-2 focus:ring-[#3D5AFE]/20 transition-all shadow-xs"
                   />
                 </div>
 
@@ -396,7 +396,7 @@ ${formData.message || 'Ready for audit and alignment.'}`;
                   animate={{ x: btnOffset.x, y: btnOffset.y }}
                   transition={{ type: 'spring', stiffness: 350, damping: 25 }}
                   disabled={submittedStatus === 'preparing'}
-                  className="w-full h-12 rounded-[2px] bg-[#1558C9] hover:bg-[#1A66E0] disabled:opacity-40 text-white text-[14px] font-medium leading-none transition-colors duration-150 ease-out cursor-pointer text-center"
+                  className="w-full h-12 rounded-full bg-[#3D5AFE] hover:bg-[#2F47D4] disabled:opacity-40 text-white text-[15px] font-semibold leading-none transition-all duration-150 ease-out cursor-pointer text-center shadow-md shadow-[#3D5AFE]/25 hover:shadow-lg hover:shadow-[#3D5AFE]/30"
                 >
                   {submittedStatus === 'preparing' ? 'Preparing Parameters...' : 'Submit Inquiry & Request Audit'}
                 </motion.button>

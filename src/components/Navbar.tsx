@@ -87,11 +87,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
       }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       style={{
-        backgroundColor: 'rgba(3, 4, 7, 0.72)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
+        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.92)' : 'rgba(255, 255, 255, 0.85)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
       }}
-      className="fixed top-0 left-0 right-0 z-50 h-20 border-b border-white/8 transition-colors duration-200"
+      className="fixed top-0 left-0 right-0 z-50 h-20 border-b border-[#E5EAF5] transition-all duration-200 shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
     >
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8 h-full flex items-center justify-between">
         {/* Brand Logo */}
@@ -106,15 +106,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
           <img
             src="/klido-logo.jpeg"
             alt="Klido Logo"
-            className="w-8 h-8 rounded-[8px] object-cover border border-white/10 shadow-sm transition-transform duration-200 group-hover:scale-105"
+            className="w-8 h-8 rounded-[10px] object-cover border border-[#E5EAF5] shadow-xs transition-transform duration-200 group-hover:scale-105"
           />
-          <span className="font-serif text-[22px] text-[#F4F6FA] tracking-[-0.02em] font-normal relative">
+          <span className="font-sans font-bold text-[20px] text-[#111827] tracking-tight relative">
             Klido
-            <span className="absolute -bottom-0.5 left-0 w-0 h-[1px] bg-[#D4FF24] transition-all duration-200 group-hover:w-full" />
+            <span className="absolute -bottom-0.5 left-0 w-0 h-[2px] bg-[#3D5AFE] transition-all duration-200 group-hover:w-full" />
           </span>
         </a>
 
-        {/* Desktop Navigation with Framer Motion layoutId lime underline */}
+        {/* Desktop Navigation with Framer Motion layoutId electric-blue underline */}
         <nav
           className="hidden md:flex items-center gap-8 text-[14px]"
           onMouseLeave={() => setHoveredSection(null)}
@@ -133,15 +133,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                   e.preventDefault();
                   handleNavClick(link.id, link.href);
                 }}
-                className={`relative py-1 transition-colors duration-150 ease-out cursor-pointer ${
-                  isActive ? 'text-[#F4F6FA] font-medium' : 'text-[#9AA3B2] hover:text-[#F4F6FA]'
+                className={`relative py-1.5 transition-colors duration-150 ease-out cursor-pointer ${
+                  isActive ? 'text-[#111827] font-semibold' : 'text-[#64748B] hover:text-[#111827]'
                 }`}
               >
                 <span>{link.name}</span>
                 {showLine && (
                   <motion.div
                     layoutId="navbar-underline"
-                    className="absolute bottom-0 left-0 right-0 h-[1px] bg-[#D4FF24]"
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#3D5AFE] rounded-full"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -150,12 +150,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
           })}
         </nav>
 
-        {/* Right Action: Contact Button (Solid #1558C9, white text, 2px radius, hover #1A66E0, 44px height) */}
+        {/* Right Action: Rounded Electric-Blue CTA (#3D5AFE) */}
         <div className="hidden md:flex items-center">
           <button
             type="button"
             onClick={() => handleNavClick('contact', '#contact')}
-            className="h-11 px-6 rounded-[2px] bg-[#1558C9] hover:bg-[#1A66E0] text-white text-[14px] font-medium leading-none cursor-pointer transition-colors duration-150 ease-out shadow-xs flex items-center justify-center"
+            className="h-11 px-6 rounded-full bg-[#3D5AFE] hover:bg-[#2F47D4] text-white text-[14px] font-medium leading-none cursor-pointer transition-all duration-150 ease-out shadow-sm shadow-[#3D5AFE]/25 hover:shadow-md hover:shadow-[#3D5AFE]/30 hover:-translate-y-0.5 flex items-center justify-center"
           >
             <span>Contact</span>
           </button>
@@ -166,7 +166,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#F4F6FA] focus:outline-none cursor-pointer"
+            className="p-2 text-[#111827] focus:outline-none cursor-pointer rounded-lg hover:bg-[#F3F6FF]"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
@@ -182,7 +182,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden bg-[#0B0F18]/95 backdrop-blur-md border-b border-white/8 px-6 py-6 space-y-4 overflow-hidden"
+            className="md:hidden bg-white/95 backdrop-blur-md border-b border-[#E5EAF5] px-6 py-6 space-y-4 overflow-hidden shadow-lg"
           >
             <nav className="flex flex-col space-y-3">
               {navLinks.map((link) => {
@@ -195,8 +195,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                       e.preventDefault();
                       handleNavClick(link.id, link.href);
                     }}
-                    className={`text-[14px] py-1 transition-colors ${
-                      isActive ? 'text-[#F4F6FA] font-medium' : 'text-[#9AA3B2]'
+                    className={`text-[14px] py-1.5 transition-colors ${
+                      isActive ? 'text-[#111827] font-semibold' : 'text-[#64748B]'
                     }`}
                   >
                     {link.name}
@@ -204,11 +204,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                 );
               })}
             </nav>
-            <div className="pt-4 border-t border-white/8">
+            <div className="pt-4 border-t border-[#E5EAF5]">
               <button
                 type="button"
                 onClick={() => handleNavClick('contact', '#contact')}
-                className="w-full h-11 rounded-[2px] bg-[#1558C9] hover:bg-[#1A66E0] text-white text-[14px] font-medium transition-colors cursor-pointer"
+                className="w-full h-11 rounded-full bg-[#3D5AFE] hover:bg-[#2F47D4] text-white text-[14px] font-medium transition-colors cursor-pointer shadow-sm shadow-[#3D5AFE]/25"
               >
                 Contact
               </button>

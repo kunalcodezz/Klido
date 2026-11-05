@@ -10,40 +10,40 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-[72px] lg:py-32 bg-transparent relative z-10 border-t border-white/8">
+    <section id="faq" className="py-[72px] lg:py-32 bg-[#F3F6FF] relative z-10 border-t border-[#E5EAF5]">
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         <div className="grid grid-cols-12 gap-8 items-start">
           {/* Left Column: Sticky Heading */}
-          <div className="col-span-12 lg:col-span-4 lg:sticky lg:top-24 bg-[#0B0F18]/95 backdrop-blur-xs p-6 rounded-[2px] border border-white/8">
-            <span className="text-[12px] uppercase font-sans tracking-[0.08em] font-medium text-[#9AA3B2] block mb-3">
+          <div className="col-span-12 lg:col-span-4 lg:sticky lg:top-28 bg-white p-6 sm:p-8 rounded-2xl border border-[#E5EAF5] shadow-xs">
+            <span className="text-[12px] uppercase font-mono tracking-[0.1em] font-semibold text-[#3D5AFE] block mb-3">
               05 / FAQ
             </span>
-            <h2 className="font-serif text-[32px] sm:text-[56px] font-normal text-[#F4F6FA] leading-[1.08] tracking-[-0.02em] mb-4">
+            <h2 className="font-sans text-[32px] sm:text-[42px] font-bold text-[#111827] leading-[1.08] tracking-[-0.03em] mb-4">
               Frequently asked questions.
             </h2>
-            <p className="text-[16px] leading-[1.6] text-[#9AA3B2] max-w-[40ch]">
+            <p className="text-[15px] leading-[1.6] text-[#64748B] max-w-[40ch]">
               Commercial terms, ad account custody, and operational handover protocols.
             </p>
           </div>
 
           {/* Right Column: Questions with Framer Motion Accordion & 45-degree rotating plus icon */}
-          <div className="col-span-12 lg:col-span-8 bg-[#0B0F18]/95 backdrop-blur-xs p-6 sm:p-8 rounded-[2px] border border-white/8">
+          <div className="col-span-12 lg:col-span-8 bg-white p-6 sm:p-8 rounded-2xl border border-[#E5EAF5] shadow-xs">
             {faqsData.map((faq) => {
               const isOpen = openId === faq.id;
               return (
-                <div key={faq.id} className="border-b border-white/8 py-6">
+                <div key={faq.id} className="border-b border-[#E5EAF5] last:border-b-0 py-6">
                   <button
                     type="button"
                     onClick={() => toggle(faq.id)}
                     className="w-full text-left flex items-start justify-between gap-6 cursor-pointer focus:outline-none group"
                   >
-                    <h3 className="font-serif text-[20px] font-normal text-[#F4F6FA] leading-snug group-hover:text-[#1558C9] transition-colors">
+                    <h3 className="font-sans text-[18px] sm:text-[19px] font-semibold text-[#111827] leading-snug group-hover:text-[#3D5AFE] transition-colors">
                       {faq.question}
                     </h3>
                     <motion.div
                       animate={{ rotate: isOpen ? 45 : 0 }}
                       transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                      className="font-mono text-[22px] leading-none text-[#9AA3B2] shrink-0 pt-0.5 select-none w-6 h-6 flex items-center justify-center group-hover:text-[#1558C9]"
+                      className="font-mono text-[22px] leading-none text-[#64748B] shrink-0 pt-0.5 select-none w-6 h-6 flex items-center justify-center group-hover:text-[#3D5AFE]"
                     >
                       +
                     </motion.div>
@@ -73,7 +73,7 @@ export const FAQ: React.FC = () => {
                         className="overflow-hidden"
                       >
                         <div className="pt-4 pr-12">
-                          <p className="text-[16px] leading-[1.6] text-[#9AA3B2] max-w-[60ch]">
+                          <p className="text-[15px] leading-[1.65] text-[#64748B] max-w-[60ch]">
                             {faq.answer}
                           </p>
                         </div>

@@ -3,6 +3,7 @@ import creatorLifestyle from '../assets/images/creator_ugc_lifestyle_17935411117
 import creatorArtisan from '../assets/images/creator_ugc_artisan_1793541111804.jpg';
 import zegoreLeather from '../assets/images/zegore_leather_accessories_1793541111684.jpg';
 import hashiCeramics from '../assets/images/hashi_ceramics_home_1793541111377.jpg';
+import klidoLogo from '../assets/klido-logo.jpeg';
 
 export interface PhoneScreenCanvases {
   canvasMetaAds: HTMLCanvasElement;
@@ -55,6 +56,7 @@ export class PhoneScreensManager {
       artisan: creatorArtisan,
       zegore: zegoreLeather,
       hashi: hashiCeramics,
+      logo: klidoLogo,
     };
 
     const loadImages = Object.entries(imageSources).map(([key, src]) => {
@@ -255,9 +257,16 @@ export class PhoneScreensManager {
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    ctx.fillStyle = '#9AA3B2';
-    ctx.font = '700 32px monospace';
-    ctx.fillText('SPONSORED • KLIDO AD CAMPAIGN', padX + 28, headerY + 44);
+    if (this.images.logo) {
+      this.drawCoverImage(ctx, this.images.logo, padX + 16, headerY + 12, 40, 40, 8);
+      ctx.fillStyle = '#9AA3B2';
+      ctx.font = '700 32px monospace';
+      ctx.fillText('SPONSORED • KLIDO AD CAMPAIGN', padX + 68, headerY + 44);
+    } else {
+      ctx.fillStyle = '#9AA3B2';
+      ctx.font = '700 32px monospace';
+      ctx.fillText('SPONSORED • KLIDO AD CAMPAIGN', padX + 28, headerY + 44);
+    }
 
     // Main Creative Image: at least 984px wide, ~1300px tall (cover fit)
     const creativeX = padX;
