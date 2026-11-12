@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface PreloaderProps {
@@ -8,6 +8,15 @@ interface PreloaderProps {
 export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
   const [visible, setVisible] = useState(true);
   const [progress, setProgress] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const finishLoading = () => {
+    setProgress(100);
+    setTimeout(() => {
+      setVisible(false);
+      onComplete?.();
+    }, 180);
+  };
 
   useEffect(() => {
     // Check prefers-reduced-motion
@@ -18,23 +27,39 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       return;
     }
 
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setTimeout(() => {
-            setVisible(false);
-            onComplete?.();
-          }, 200);
-          return 100;
-        }
-        // Rapid acceleration
-        const increment = Math.max(4, Math.floor(Math.random() * 20));
-        return Math.min(100, prev + increment);
+    // Play video if possible
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.0;
+      videoRef.current.play().catch(() => {
+        // Autoplay may be restricted in some environments; handled gracefully
       });
-    }, 45);
+    }
 
-    return () => clearInterval(interval);
+    // Animate progress smoothly over the 2-second video duration
+    const startTime = Date.now();
+    const duration = 1950; // matches loading.mp4 duration (~1.97s)
+
+    const interval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const currentProgress = Math.min(100, Math.round((elapsed / duration) * 100));
+      setProgress(currentProgress);
+
+      if (elapsed >= duration) {
+        clearInterval(interval);
+        finishLoading();
+      }
+    }, 30);
+
+    // Hard fallback timeout (2.4s max) to guarantee preloader never blocks
+    const fallbackTimer = setTimeout(() => {
+      clearInterval(interval);
+      finishLoading();
+    }, 2400);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(fallbackTimer);
+    };
   }, [onComplete]);
 
   return (
@@ -45,36 +70,37 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           initial={{ opacity: 1 }}
           exit={{
             y: '-100%',
+            opacity: 0.95,
             transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
           }}
-          className="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center select-none"
+          className="fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center select-none px-6"
         >
-          {/* Top progress line */}
+          {/* Top progress indicator line */}
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#E5EAF5]">
             <motion.div
               className="h-full bg-[#3D5AFE]"
               style={{ width: `${progress}%` }}
-              transition={{ ease: 'easeOut', duration: 0.1 }}
+              transition={{ ease: 'easeOut', duration: 0.05 }}
             />
           </div>
 
-          {/* Centered Minimal Brand Monogram */}
-          <div className="flex flex-col items-center gap-4">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="w-14 h-14 border border-[#E5EAF5] rounded-[16px] overflow-hidden shadow-md shadow-[#3D5AFE]/5 bg-white p-0.5"
-            >
-              <img
-                src="/klido-logo.jpeg"
-                alt="Klido Logo"
-                className="w-full h-full object-cover rounded-[14px]"
+          {/* Centered Loading Animation Video */}
+          <div className="flex flex-col items-center justify-center max-w-[540px] w-full">
+            <div className="w-full aspect-video flex items-center justify-center overflow-hidden rounded-2xl">
+              <video
+                ref={videoRef}
+                src="/loading.mp4"
+                autoPlay
+                muted
+                playsInline
+                onEnded={finishLoading}
+                className="w-full h-full object-contain pointer-events-none select-none"
               />
-            </motion.div>
+            </div>
 
-            <div className="flex items-center gap-3">
-              <span className="font-sans font-bold text-[18px] text-[#111827] tracking-tight">Klido</span>
+            {/* Subtle Progress Label */}
+            <div className="mt-4 flex items-center gap-3">
+              <span className="font-sans font-semibold text-[13px] text-[#111827] tracking-tight">Klido</span>
               <span className="text-[#64748B]/40">•</span>
               <span className="font-mono text-[12px] text-[#64748B] tabular-nums tracking-wider font-medium">
                 {progress}%

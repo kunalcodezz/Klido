@@ -31,21 +31,6 @@ export const BEFORE_AFTER_CATEGORIES: BeforeAfterCategory[] = [
     },
   },
   {
-    id: 'influencer',
-    name: 'Influencer Marketing',
-    tagline: 'Curated Creator Collaborations',
-    before: {
-      label: 'BEFORE',
-      sublabel: 'Unstructured collaboration & basic promo',
-      image: '/HEROANIM/badinfluencermarketing.png',
-    },
-    after: {
-      label: 'AFTER',
-      sublabel: 'Polished campaign with high-res creator content',
-      image: '/HEROANIM/goodinfluencermarketing.png',
-    },
-  },
-  {
     id: 'social-media',
     name: 'Social Media',
     tagline: 'Cohesive Editorial Brand Architecture',

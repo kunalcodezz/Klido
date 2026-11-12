@@ -249,7 +249,7 @@ export const Pricing: React.FC<PricingProps> = ({
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
             {HOW_WE_START_STEPS.map((step) => (
-              <div key={step.step} className="border-t-2 border-[#3D5AFE] pt-6 sm:pt-8">
+              <div key={step.step} className="border-t border-[#111827] pt-6 sm:pt-8">
                 <span className="font-sans text-[36px] sm:text-[44px] font-bold leading-none text-[#3D5AFE] block mb-4 sm:mb-5">
                   {step.step}
                 </span>
