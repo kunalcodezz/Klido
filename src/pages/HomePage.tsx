@@ -7,11 +7,9 @@ import { BrandsSection } from '../components/BrandsSection';
 import { SeniorStudioSection } from '../components/SeniorStudioSection';
 import { PricingSection } from '../components/PricingSection';
 import { HowWeWorkSection } from '../components/HowWeWorkSection';
+import { ContactSection } from '../components/ContactSection';
 import { FAQSection } from '../components/FAQSection';
-import {
-  ProjectBriefSection,
-  type SelectedPlanState,
-} from '../components/ProjectBriefSection';
+import type { SelectedPlanState } from '../components/ProjectBriefSection';
 
 export function HomePage() {
   const [selectedPlan, setSelectedPlan] = useState<SelectedPlanState | null>(null);
@@ -147,8 +145,8 @@ export function HomePage() {
       {/* 5. How We Work / Our Process Section */}
       <HowWeWorkSection />
 
-      {/* 6. Start a Project — Inline Project Brief Section */}
-      <ProjectBriefSection selectedPlan={selectedPlan} />
+      {/* 6. Contact Us — Let's Build Something Great Together */}
+      <ContactSection id="start-project" selectedPlan={selectedPlan} />
 
       {/* 7. Frequently Asked Questions (FAQ) */}
       <FAQSection />
