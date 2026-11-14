@@ -72,6 +72,14 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
+                    to="/#faq"
+                    className="transition-colors duration-150 hover:text-[#0D1126]"
+                  >
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/services#scope-planner"
                     className="transition-colors duration-150 hover:text-[#0D1126]"
                   >

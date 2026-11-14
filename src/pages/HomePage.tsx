@@ -6,6 +6,8 @@ import { CampaignMap } from '../components/CampaignMap';
 import { BrandsSection } from '../components/BrandsSection';
 import { SeniorStudioSection } from '../components/SeniorStudioSection';
 import { PricingSection } from '../components/PricingSection';
+import { HowWeWorkSection } from '../components/HowWeWorkSection';
+import { FAQSection } from '../components/FAQSection';
 import {
   ProjectBriefSection,
   type SelectedPlanState,
@@ -142,8 +144,14 @@ export function HomePage() {
       {/* 4. Service Plans & Pricing */}
       <PricingSection onSelectPlan={handlePlanSelect} />
 
-      {/* 5. Start a Project — Inline Project Brief Section */}
+      {/* 5. How We Work / Our Process Section */}
+      <HowWeWorkSection />
+
+      {/* 6. Start a Project — Inline Project Brief Section */}
       <ProjectBriefSection selectedPlan={selectedPlan} />
+
+      {/* 7. Frequently Asked Questions (FAQ) */}
+      <FAQSection />
     </div>
   );
 }

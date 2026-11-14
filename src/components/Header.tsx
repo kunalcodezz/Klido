@@ -13,6 +13,7 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'Services', to: '/', matchPath: '/', matchDefaultHome: true },
+  { label: 'Approach', to: '/#how-we-work', matchPath: '/', matchHash: '#how-we-work' },
   { label: 'Studio', to: '/about', matchPath: '/about' },
   { label: 'Work', to: '/#work', matchPath: '/', matchHash: '#work' },
   { label: 'Pricing', to: '/#pricing', matchPath: '/', matchHash: '#pricing' },
