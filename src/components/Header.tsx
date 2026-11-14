@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
+import klidoLogo from '../assets/images/Klido_Logo.png';
 
 interface NavItem {
   label: string;
@@ -21,24 +22,14 @@ export function KlidoMark() {
   return (
     <span className="inline-flex items-center gap-2.5">
       <span
-        className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#123FFF] text-white"
+        className="inline-flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg bg-[#123FFF] text-white shadow-xs"
         aria-hidden="true"
       >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.5 2.5V13.5M12.5 2.5L6 8L12.5 13.5"
-            stroke="currentColor"
-            strokeWidth="2.4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <img
+          src={klidoLogo}
+          alt="Klido logo"
+          className="h-full w-full object-cover"
+        />
       </span>
       <span className="font-display text-xl font-bold tracking-tight text-[#0D1126]">
         klido

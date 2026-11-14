@@ -71,12 +71,12 @@ export function BrandsSection() {
           <article className="flex flex-col justify-between rounded-2xl border border-[#E5E9F2] bg-white p-4 shadow-[0_18px_45px_-20px_rgba(13,17,38,0.08)] sm:p-5">
             <div className="grid gap-5 sm:grid-cols-12 sm:items-stretch">
               <div className="sm:col-span-5">
-                <div className="h-56 overflow-hidden rounded-xl border border-[#E5E9F2] bg-[#F4ECE2] sm:h-full sm:min-h-[230px]">
+                <div className="flex h-56 items-center justify-center overflow-hidden rounded-xl border border-[#E5E9F2] bg-white sm:h-full sm:min-h-[230px]">
                   <img
                     src={STUDIO_IMAGES.brandHashi}
-                    alt="Hashi home essentials kraft shipping box on a sunlit oak table"
+                    alt="Hashi"
                     referrerPolicy="no-referrer"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-contain p-2"
                   />
                 </div>
               </div>
@@ -85,10 +85,14 @@ export function BrandsSection() {
                 <div>
                   <div className="flex items-center gap-3">
                     <div
-                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#EDE3D6] bg-[#F5EDE3] font-serif text-xs font-semibold text-[#0D1126]"
+                      className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-[#EDE3D6] bg-white shadow-xs"
                       aria-hidden="true"
                     >
-                      Hashi
+                      <img
+                        src={STUDIO_IMAGES.brandHashi}
+                        alt="Hashi logo"
+                        className="h-full w-full object-contain p-1"
+                      />
                     </div>
                     <div>
                       <h3 className="font-display text-lg font-bold tracking-tight text-[#0D1126]">
@@ -136,12 +140,12 @@ export function BrandsSection() {
           <article className="flex flex-col justify-between rounded-2xl border border-[#E5E9F2] bg-white p-4 shadow-[0_18px_45px_-20px_rgba(13,17,38,0.08)] sm:p-5">
             <div className="grid gap-5 sm:grid-cols-12 sm:items-stretch">
               <div className="sm:col-span-5">
-                <div className="h-56 overflow-hidden rounded-xl border border-[#E5E9F2] bg-[#36281E] sm:h-full sm:min-h-[230px]">
+                <div className="flex h-56 items-center justify-center overflow-hidden rounded-xl border border-[#E5E9F2] bg-black sm:h-full sm:min-h-[230px]">
                   <img
                     src={STUDIO_IMAGES.brandSaanjh}
-                    alt="Saanjh by Riya handcrafted luxury candle burning on a warm wood table"
+                    alt="Saanjh by Riya"
                     referrerPolicy="no-referrer"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-contain"
                   />
                 </div>
               </div>
@@ -150,11 +154,14 @@ export function BrandsSection() {
                 <div>
                   <div className="flex items-center gap-3">
                     <div
-                      className="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-xl border border-[#EDE3D6] bg-[#F7EFE6] font-serif text-[10px] leading-tight font-semibold text-[#5C3A21]"
+                      className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-[#2A2A2A] bg-black shadow-xs"
                       aria-hidden="true"
                     >
-                      <span>Saanjh</span>
-                      <span className="text-[8px] font-normal">by Riya</span>
+                      <img
+                        src={STUDIO_IMAGES.brandSaanjh}
+                        alt="Saanjh by Riya logo"
+                        className="h-full w-full object-contain p-1"
+                      />
                     </div>
                     <div>
                       <h3 className="font-display text-lg font-bold tracking-tight text-[#0D1126]">
@@ -196,36 +203,26 @@ export function BrandsSection() {
         <article className="mt-6 rounded-2xl border border-[#E5E9F2] bg-white p-4 shadow-[0_18px_45px_-20px_rgba(13,17,38,0.08)] sm:p-5">
           <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-3">
-              <div className="h-28 overflow-hidden rounded-xl border border-[#E5E9F2] bg-[#161922] sm:h-32">
+              <div className="flex h-28 items-center justify-center overflow-hidden rounded-xl border border-[#E5E9F2] bg-black sm:h-32">
                 <img
                   src={STUDIO_IMAGES.brandZegore}
-                  alt="Zegore matte black ballistic-nylon travel pouch with lime zipper accent"
+                  alt="Zegore"
                   referrerPolicy="no-referrer"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                 />
               </div>
             </div>
 
             <div className="flex items-center gap-3.5 lg:col-span-3">
               <div
-                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#0D1126] text-white"
+                className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-[#2A2A2A] bg-black text-white shadow-xs"
                 aria-hidden="true"
               >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4 14L14.5 4.5M14.5 4.5H8M14.5 4.5V11"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <img
+                  src={STUDIO_IMAGES.brandZegore}
+                  alt="Zegore logo"
+                  className="h-full w-full object-contain p-1"
+                />
               </div>
               <div>
                 <h3 className="font-display text-lg font-bold tracking-tight text-[#0D1126]">

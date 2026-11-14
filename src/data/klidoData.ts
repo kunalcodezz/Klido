@@ -1,3 +1,9 @@
+import klidoLogoImg from '../assets/images/Klido_Logo.png';
+import klidodeskImg from '../assets/images/klidodesk.png';
+import hashiImg from '../assets/images/Hashi.png';
+import saanjhImg from '../assets/images/saanjhbyriya.png';
+import zegoreImg from '../assets/images/ZEGORE.png';
+
 export interface PracticeArea {
   id: string;
   index: string;
@@ -432,12 +438,13 @@ export const CLIENT_BRANDS: ClientBrand[] = [
 ];
 
 export const STUDIO_IMAGES = {
+  logo: klidoLogoImg,
   hero: '/src/assets/images/klido_hero_studio_1794583087140.jpg',
   strategyDesk: '/src/assets/images/klido_strategy_desk_1794583087264.jpg',
   studioInterior: '/src/assets/images/klido_studio_interior_1794583088377.jpg',
-  brandDesk: '/src/assets/images/klido_brand_desk_1794596215183.jpg',
-  brandHashi: '/src/assets/images/brand_hashi_1794596562093.jpg',
-  brandSaanjh: '/src/assets/images/brand_saanjh_1794596561876.jpg',
-  brandZegore: '/src/assets/images/brand_zegore_1794596563407.jpg',
+  brandDesk: klidodeskImg,
+  brandHashi: hashiImg,
+  brandSaanjh: saanjhImg,
+  brandZegore: zegoreImg,
 };
 
