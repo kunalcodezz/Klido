@@ -236,7 +236,7 @@ export function ApproachPage() {
           </div>
 
           <div className="mt-8 overflow-x-auto rounded-2xl border border-[#E5E9F2]">
-            <table className="w-full min-w-[640px] border-collapse text-left text-sm">
+            <table className="w-full min-w-[560px] border-collapse text-left text-sm">
               <thead>
                 <tr className="border-b border-[#E5E9F2] bg-[#F7F9FE] text-xs font-semibold text-[#6B7388]">
                   <th className="w-1/5 px-5 py-3.5">Area</th>

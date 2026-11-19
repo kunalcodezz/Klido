@@ -15,11 +15,21 @@
     --accent-lime: #c2f81a;
   }
 
+  /* Prevent horizontal scroll on all screens */
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
   html {
     font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--bg-canvas);
     color: var(--ink-primary);
     scroll-behavior: smooth;
+    /* Better text sizing on mobile */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   h1,
@@ -45,6 +55,25 @@
       linear-gradient(to right, rgba(218, 226, 245, 0.55) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(218, 226, 245, 0.55) 1px, transparent 1px);
     background-size: 28px 28px;
+  }
+
+  /* Ensure all images are responsive by default */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Minimum touch target size */
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+  }
+
+  /* Better tap highlight on mobile */
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 

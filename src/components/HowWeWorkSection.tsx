@@ -63,7 +63,7 @@ export function HowWeWorkSection() {
       />
 
       <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           {/* Left Column: Heading & Subtitle */}
           <div className="lg:col-span-4 xl:col-span-4">
             <div className="lg:sticky lg:top-28">
@@ -77,7 +77,7 @@ export function HowWeWorkSection() {
               </div>
 
               {/* Main Heading */}
-              <h2 className="font-display mt-5 text-4xl font-bold leading-[1.08] tracking-[-0.03em] text-[#0D1126] sm:text-5xl lg:text-[3.25rem]">
+              <h2 className="font-display mt-5 text-[2.5rem] font-bold leading-[1.08] tracking-[-0.03em] text-[#0D1126] sm:text-5xl lg:text-[3.25rem]">
                 How We
                 <br />
                 Work
@@ -132,7 +132,7 @@ export function HowWeWorkSection() {
                           <img
                             src={step.image}
                             alt={step.imageAlt}
-                            className="aspect-[3.59/1] w-full object-cover"
+                            className="aspect-[16/5] w-full object-cover sm:aspect-[3.59/1]"
                             loading="lazy"
                           />
                         </div>

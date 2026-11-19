@@ -17,15 +17,13 @@ export function ServicesPage() {
                   className="inline-block h-[3px] w-5 rounded-full bg-[#C2F81A]"
                   aria-hidden="true"
                 />
-                <span>Services &amp; Capabilities</span>
+                <span className="uppercase tracking-wider">YOUR PARTNER IN DIGITAL GROWTH</span>
               </div>
               <h1 className="font-display mt-3 text-balance text-3xl font-bold tracking-tight text-[#0D1126] sm:text-4xl lg:text-5xl">
-                Four integrated disciplines built around commercial clarity.
+                We turn ambitious brands into brands people remember.
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#4A5268]">
-                Paid media fails without dedicated landing architecture. SEO stalls without
-                clean technical crawlability. Klido unites all four layers so every euro of
-                marketing effort compounds cleanly.
+                From brand positioning and performance marketing to creative campaigns and business operations, Klido brings everything together to help businesses build a stronger presence and grow with purpose.
               </p>
               <div className="mt-7 flex flex-wrap items-center gap-4">
                 <a

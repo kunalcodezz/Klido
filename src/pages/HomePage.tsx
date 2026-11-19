@@ -35,8 +35,8 @@ export function HomePage() {
           className="pointer-events-none absolute -bottom-28 -left-24 h-72 w-72 rounded-[44%] bg-gradient-to-tr from-[#123FFF]/55 via-[#123FFF]/18 to-transparent blur-2xl"
         />
 
-        <div className="relative mx-auto max-w-[1200px] px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-12">
+        <div className="relative mx-auto max-w-[1200px] px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
             {/* Left Copy & Actions */}
             <div className="lg:col-span-6">
               <div className="inline-flex items-center gap-2.5 text-sm font-medium text-[#4A5268]">
@@ -44,13 +44,13 @@ export function HomePage() {
                   className="inline-block h-[3px] w-6 rounded-full bg-[#C2F81A]"
                   aria-hidden="true"
                 />
-                <span>Independent digital marketing studio</span>
+                <span className="uppercase tracking-wider">YOUR PARTNER IN DIGITAL GROWTH</span>
               </div>
 
-              <h1 className="font-display mt-5 text-balance text-4xl font-bold leading-[1.06] tracking-[-0.03em] text-[#0D1126] sm:text-5xl lg:text-[3.5rem]">
-                Marketing that gives people a reason to{' '}
+              <h1 className="font-display mt-5 text-balance text-[2rem] font-bold leading-[1.08] tracking-[-0.03em] text-[#0D1126] sm:text-4xl lg:text-[3.5rem] lg:leading-[1.06]">
+                We turn ambitious brands into{' '}
                 <span className="relative inline-block text-[#123FFF]">
-                  <span>choose you</span>
+                  <span>brands people remember.</span>
                   <svg
                     className="pointer-events-none absolute -bottom-2 left-0 w-full"
                     viewBox="0 0 240 12"
@@ -68,12 +68,13 @@ export function HomePage() {
                 </span>
               </h1>
 
-              <p className="mt-7 max-w-lg text-base leading-relaxed text-[#4A5268] sm:text-lg">
-                Klido turns a strong offer into clear positioning, considered campaigns, and
-                a practical system for growth.
+              <p className="mt-6 max-w-lg text-base leading-relaxed text-[#4A5268] sm:text-lg">
+                From brand positioning and performance marketing to creative campaigns and
+                business operations, Klido brings everything together to help businesses
+                build a stronger presence and grow with purpose.
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-6">
+              <div className="mt-8 flex flex-wrap items-center gap-4">
                 <a
                   href="#start-project"
                   className="inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2.5 whitespace-nowrap rounded-lg bg-[#123FFF] px-6 py-3 text-sm font-semibold text-white transition-colors duration-150 hover:bg-[#0D31CC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123FFF]"

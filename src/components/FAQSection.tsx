@@ -93,7 +93,7 @@ export function FAQSection() {
               </div>
 
               {/* Main Heading with signature curved lime underline */}
-              <h2 className="font-display mt-5 text-4xl font-bold leading-[1.08] tracking-[-0.03em] text-[#0D1126] sm:text-5xl lg:text-[3.25rem]">
+              <h2 className="font-display mt-5 text-[2.5rem] font-bold leading-[1.08] tracking-[-0.03em] text-[#0D1126] sm:text-5xl lg:text-[3.25rem]">
                 Frequently
                 <br />
                 Asked

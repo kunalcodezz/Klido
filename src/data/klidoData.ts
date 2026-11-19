@@ -413,11 +413,11 @@ export interface ClientBrand {
 export const CLIENT_BRANDS: ClientBrand[] = [
   {
     index: '01.',
-    name: 'Hashi',
+    name: 'HashiBusiness',
     scopes: ['Business ops'],
     filterKeys: ['ops'],
     description:
-      'Taking a home business with 100+ SKUs to an online brand: process optimisation, costing and SOPs. Meta ads and influencer marketing start in November.',
+      'Helping businesses streamline their operations with smarter business solutions, efficient workflows, and a focus on sustainable growth.',
   },
   {
     index: '02.',
@@ -425,7 +425,7 @@ export const CLIENT_BRANDS: ClientBrand[] = [
     scopes: ['Social', 'Ops', 'Influencer'],
     filterKeys: ['social', 'ops', 'influencer'],
     description:
-      'Handcrafted luxury candles and decor from Pune. We run social media, end-to-end business operations and influencer marketing. See the brand on Instagram.',
+      'A creative candle brand bringing warmth and elegance to everyday spaces through thoughtfully crafted candles and meaningful gifting experiences.',
   },
   {
     index: '03.',
@@ -433,7 +433,7 @@ export const CLIENT_BRANDS: ClientBrand[] = [
     scopes: ['Influencer', 'Social'],
     filterKeys: ['influencer', 'social'],
     description:
-      'Influencer campaigns and social media marketing for the brand.',
+      'Building a distinctive brand presence through strategic digital solutions, creative positioning, and a focus on connecting with the right audience.',
   },
 ];
 

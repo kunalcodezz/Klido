@@ -298,7 +298,7 @@ export function ContactSection({
               </div>
 
               {/* Bold Headline */}
-              <h2 className="font-display mt-5 text-4xl font-bold leading-[1.08] tracking-[-0.03em] text-[#0D1126] sm:text-5xl lg:text-[3.5rem]">
+              <h2 className="font-display mt-5 text-[2.25rem] font-bold leading-[1.08] tracking-[-0.03em] text-[#0D1126] sm:text-5xl lg:text-[3.5rem]">
                 Let&apos;s Build
                 <br />
                 Something Great
@@ -307,13 +307,13 @@ export function ContactSection({
               </h2>
 
               {/* Subtitle */}
-              <p className="mt-6 max-w-md text-base leading-relaxed text-[#4A5268]">
+              <p className="mt-5 max-w-md text-base leading-relaxed text-[#4A5268]">
                 Have a project in mind, a question about our services, or just want to say
                 hello? We&apos;d love to hear from you.
               </p>
 
               {/* Contact Details List */}
-              <div className="mt-8 space-y-4">
+              <div className="mt-7 space-y-3.5 sm:mt-8 sm:space-y-4">
                 {/* 1. Email */}
                 <a
                   href="mailto:klidoagency@gmail.com"
@@ -322,7 +322,7 @@ export function ContactSection({
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#EEF2FF] text-[#2457FF] transition-all duration-150 group-hover:scale-105 group-hover:bg-[#2457FF] group-hover:text-white shadow-xs">
                     <Mail className="h-4 w-4" />
                   </div>
-                  <span>klidoagency@gmail.com</span>
+                  <span className="break-all sm:break-normal">klidoagency@gmail.com</span>
                 </a>
 
                 {/* 2. Phone */}
@@ -352,7 +352,7 @@ export function ContactSection({
             </div>
 
             {/* Subtle Interactive Globe positioned at bottom-left */}
-            <div className="relative mt-10 -ml-4 w-full max-w-[360px] sm:max-w-[420px] lg:mt-14">
+            <div className="relative mx-auto mt-8 w-full max-w-[280px] sm:max-w-[360px] lg:mx-0 lg:mt-14 lg:max-w-[420px]">
               <div className="aspect-square w-full">
                 <InteractiveGlobe className="h-full w-full" />
               </div>
@@ -361,7 +361,7 @@ export function ContactSection({
 
           {/* ================= RIGHT COLUMN (CONTACT FORM) ================= */}
           <div className="lg:col-span-7 xl:col-span-7">
-            <div className="rounded-[28px] border border-[#E5E9F2] bg-white p-6 shadow-[0_24px_60px_-18px_rgba(13,17,38,0.08)] sm:p-9 lg:p-10">
+            <div className="rounded-[28px] border border-[#E5E9F2] bg-white p-5 shadow-[0_24px_60px_-18px_rgba(13,17,38,0.08)] sm:p-9 lg:p-10">
               {submissionStatus !== 'full_success' && submissionStatus !== 'partial_success' ? (
                 <form onSubmit={handleSubmit} noValidate>
                   {/* Invisible Honeypot Field for Spam Protection */}

@@ -66,7 +66,7 @@ export function BrandsSection() {
         </div>
 
         {/* Top 2-Card Row: Hashi + Saanjh by Riya */}
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
           {/* Card 1: Hashi */}
           <article className="flex flex-col justify-between rounded-2xl border border-[#E5E9F2] bg-white p-4 shadow-[0_18px_45px_-20px_rgba(13,17,38,0.08)] sm:p-5">
             <div className="grid gap-5 sm:grid-cols-12 sm:items-stretch">
@@ -74,7 +74,7 @@ export function BrandsSection() {
                 <div className="flex h-56 items-center justify-center overflow-hidden rounded-xl border border-[#E5E9F2] bg-white sm:h-full sm:min-h-[230px]">
                   <img
                     src={STUDIO_IMAGES.brandHashi}
-                    alt="Hashi"
+                    alt="HashiBusiness"
                     referrerPolicy="no-referrer"
                     className="h-full w-full object-contain p-2"
                   />
@@ -90,22 +90,20 @@ export function BrandsSection() {
                     >
                       <img
                         src={STUDIO_IMAGES.brandHashi}
-                        alt="Hashi logo"
+                        alt="HashiBusiness logo"
                         className="h-full w-full object-contain p-1"
                       />
                     </div>
                     <div>
                       <h3 className="font-display text-lg font-bold tracking-tight text-[#0D1126]">
-                        Hashi
+                        HashiBusiness
                       </h3>
                       <p className="text-xs font-medium text-[#6B7388]">Business ops</p>
                     </div>
                   </div>
 
                   <p className="mt-4 text-sm leading-relaxed text-[#4A5268]">
-                    Taking a home business with 100+ SKUs to an online brand: process
-                    optimisation, costing and SOPs. Meta ads and influencer marketing start
-                    in November.
+                    Helping businesses streamline their operations with smarter business solutions, efficient workflows, and a focus on sustainable growth.
                   </p>
                 </div>
 
@@ -115,21 +113,21 @@ export function BrandsSection() {
                       className="h-3.5 w-3.5 shrink-0 text-[#4A5268]"
                       aria-hidden="true"
                     />
-                    <span className="truncate">100+ SKUs</span>
+                    <span className="truncate">Smart Solutions</span>
                   </div>
                   <div className="flex items-center justify-center gap-1.5 px-2">
                     <Layers
                       className="h-3.5 w-3.5 shrink-0 text-[#4A5268]"
                       aria-hidden="true"
                     />
-                    <span className="truncate">Ops &amp; SOPs</span>
+                    <span className="truncate">Workflows</span>
                   </div>
                   <div className="flex items-center justify-end gap-1.5 pl-2">
                     <Megaphone
                       className="h-3.5 w-3.5 shrink-0 text-[#4A5268]"
                       aria-hidden="true"
                     />
-                    <span className="truncate">Meta Ads (Nov)</span>
+                    <span className="truncate">Growth</span>
                   </div>
                 </div>
               </div>
@@ -174,8 +172,7 @@ export function BrandsSection() {
                   </div>
 
                   <p className="mt-4 text-sm leading-relaxed text-[#4A5268]">
-                    Handcrafted luxury candles and decor from Pune. We run social media,
-                    end-to-end business operations and influencer marketing.
+                    A creative candle brand bringing warmth and elegance to everyday spaces through thoughtfully crafted candles and meaningful gifting experiences.
                   </p>
                 </div>
 
@@ -234,7 +231,7 @@ export function BrandsSection() {
 
             <div className="border-[#E5E9F2] lg:col-span-3 lg:border-l lg:pl-6">
               <p className="text-sm leading-relaxed text-[#4A5268]">
-                Influencer campaigns and social media marketing for the brand.
+                Building a distinctive brand presence through strategic digital solutions, creative positioning, and a focus on connecting with the right audience.
               </p>
             </div>
 

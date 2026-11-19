@@ -46,6 +46,18 @@ export function Header() {
   const lastScrollY = useRef(0);
   const location = useLocation();
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
+
   useEffect(() => {
     setMobileOpen(false);
   }, [location.pathname, location.hash]);
@@ -202,47 +214,56 @@ export function Header() {
 
       {/* Responsive Mobile Navigation Drawer */}
       {mobileOpen ? (
-        <nav
-          id="mobile-navigation"
-          aria-label="Mobile navigation"
-          className={`pointer-events-auto border border-[#E5E9F2] bg-white/95 px-4 py-4 backdrop-blur-md md:hidden ${
-            isScrolled
-              ? 'mx-auto mt-5 w-[calc(100%-2rem)] rounded-2xl shadow-[0_18px_40px_-14px_rgba(13,17,38,0.16)]'
-              : 'border-x-0 border-t-0 shadow-sm'
-          }`}
-        >
-          <div className="flex flex-col gap-1">
-            {NAV_ITEMS.map((item) => {
-              const active = isNavItemActive(item);
-              return (
+        <>
+          {/* Full-screen backdrop to close on tap outside */}
+          <div
+            className="fixed inset-0 z-30 bg-black/20 backdrop-blur-[2px] md:hidden"
+            aria-hidden="true"
+            onClick={() => setMobileOpen(false)}
+          />
+          <nav
+            id="mobile-navigation"
+            aria-label="Mobile navigation"
+            className={`pointer-events-auto border border-[#E5E9F2] bg-white/98 px-4 py-4 backdrop-blur-md md:hidden ${
+              isScrolled
+                ? 'relative z-40 mx-auto mt-5 w-[calc(100%-2rem)] rounded-2xl shadow-[0_18px_40px_-14px_rgba(13,17,38,0.16)]'
+                : 'relative z-40 border-x-0 border-t-0 shadow-sm'
+            }`}
+          >
+            <div className="flex flex-col gap-1">
+              {NAV_ITEMS.map((item) => {
+                const active = isNavItemActive(item);
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.to}
+                    onClick={() => { handleNavClick(item); setMobileOpen(false); }}
+                    className={`flex min-h-[48px] items-center rounded-lg px-3 text-base font-medium transition-colors duration-150 ${
+                      active
+                        ? 'bg-[#EEF2FF] text-[#123FFF]'
+                        : 'text-[#0D1126] hover:bg-[#F7F9FE]'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+              <div className="mt-3 flex items-center justify-center border-t border-[#E5E9F2] pt-3">
                 <Link
-                  key={item.label}
-                  to={item.to}
-                  onClick={() => handleNavClick(item)}
-                  className={`flex min-h-[44px] items-center rounded-lg px-3 text-base font-medium transition-colors duration-150 ${
-                    active
-                      ? 'bg-[#EEF2FF] text-[#123FFF]'
-                      : 'text-[#0D1126] hover:bg-[#F7F9FE]'
-                  }`}
+                  to="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="group inline-flex min-h-[48px] w-full items-center justify-center gap-1.5 rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-[#101735] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123FFF]"
                 >
-                  {item.label}
+                  <span>Start a project</span>
+                  <ArrowUpRight
+                    className="h-4 w-4 shrink-0 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    aria-hidden="true"
+                  />
                 </Link>
-              );
-            })}
-            <div className="mt-3 flex items-center justify-center border-t border-[#E5E9F2] pt-3">
-              <Link
-                to="/contact"
-                className="group inline-flex min-h-[44px] w-full items-center justify-center gap-1.5 rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-[#101735] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123FFF]"
-              >
-                <span>Start a project</span>
-                <ArrowUpRight
-                  className="h-4 w-4 shrink-0 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  aria-hidden="true"
-                />
-              </Link>
+              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
+        </>
       ) : null}
     </header>
   );

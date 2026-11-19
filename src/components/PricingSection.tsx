@@ -243,7 +243,7 @@ export function PricingSection({ onSelectPlan }: PricingSectionProps) {
         </div>
 
         {/* 5-Column Plans Grid */}
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-5 lg:items-stretch">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 lg:items-stretch">
           {SERVICE_PLANS.map((plan) => {
             if (plan.featured) {
               return (
@@ -396,7 +396,7 @@ export function PricingSection({ onSelectPlan }: PricingSectionProps) {
             return (
               <div
                 key={item.title}
-                className="flex items-center gap-3.5 lg:justify-center"
+                className="flex items-center gap-3.5"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EEF2FF] text-[#123FFF]">
                   <Icon className="h-4 w-4" aria-hidden="true" />
