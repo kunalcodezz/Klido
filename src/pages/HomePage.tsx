@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { PRACTICE_AREAS } from '../data/klidoData';
 import { CampaignMap } from '../components/CampaignMap';
 import { BrandsSection } from '../components/BrandsSection';
 import { SeniorStudioSection } from '../components/SeniorStudioSection';
@@ -99,35 +98,6 @@ export function HomePage() {
             {/* Right Interactive Campaign Map */}
             <div className="lg:col-span-6">
               <CampaignMap />
-            </div>
-          </div>
-
-          {/* 4-column Practice Index Strip below Hero */}
-          <div className="mt-16 border-t border-[#E5E9F2] pt-9">
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-              {PRACTICE_AREAS.map((area) => (
-                <Link
-                  key={area.id}
-                  to={`/services#${area.id}`}
-                  className="group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#123FFF]"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono-tabular text-xs font-medium text-[#123FFF]">
-                      {area.index}
-                    </span>
-                    <ArrowUpRight
-                      className="h-4 w-4 text-[#6B7388] transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#0D1126]"
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <h2 className="font-display mt-2 text-base font-semibold text-[#0D1126] group-hover:text-[#123FFF]">
-                    {area.title}
-                  </h2>
-                  <p className="mt-1.5 text-sm leading-relaxed text-[#4A5268]">
-                    {area.shortSummary}
-                  </p>
-                </Link>
-              ))}
             </div>
           </div>
         </div>

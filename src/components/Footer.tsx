@@ -112,10 +112,10 @@ export function Footer() {
               <ul className="mt-4 space-y-2.5 text-sm text-[#4A5268]">
                 <li>
                   <a
-                    href="mailto:hello@klido.studio"
+                    href="mailto:klidoagency@gmail.com"
                     className="transition-colors duration-150 hover:text-[#0D1126]"
                   >
-                    hello@klido.studio
+                    klidoagency@gmail.com
                   </a>
                 </li>
                 <li>Mon–Fri, 09:00–18:00</li>

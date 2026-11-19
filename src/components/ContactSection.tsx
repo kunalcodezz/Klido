@@ -4,8 +4,8 @@ import {
   AlertCircle,
   ArrowUpRight,
   CheckCircle2,
-  Headphones,
   Info,
+  Instagram,
   Lock,
   Mail,
   PenLine,
@@ -142,7 +142,7 @@ export function ContactSection({
         hasCustomerTemplate: Boolean(CUSTOMER_TEMPLATE_ID),
       });
       setErrorMessage(
-        'Email automation is currently unconfigured. Please email us directly at contact@klido.in.'
+        'Email automation is currently unconfigured. Please email us directly at klidoagency@gmail.com.'
       );
       setSubmissionStatus('error');
       return;
@@ -246,7 +246,7 @@ export function ContactSection({
       // Admin failed: Preserve entered form data so customer doesn't lose inputs!
       setSubmissionStatus('error');
       setErrorMessage(
-        'We encountered an issue sending your message. Your entered details have been preserved. Please try again or reach out directly at contact@klido.in.'
+        'We encountered an issue sending your message. Your entered details have been preserved. Please try again or reach out directly at klidoagency@gmail.com.'
       );
     } finally {
       setIsSubmitting(false);
@@ -316,35 +316,37 @@ export function ContactSection({
               <div className="mt-8 space-y-4">
                 {/* 1. Email */}
                 <a
-                  href="mailto:contact@klido.in"
+                  href="mailto:klidoagency@gmail.com"
                   className="group flex items-center gap-3.5 text-sm font-medium text-[#0D1126] transition-colors hover:text-[#2457FF]"
                 >
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#EEF2FF] text-[#2457FF] transition-all duration-150 group-hover:scale-105 group-hover:bg-[#2457FF] group-hover:text-white shadow-xs">
                     <Mail className="h-4 w-4" />
                   </div>
-                  <span>contact@klido.in</span>
+                  <span>klidoagency@gmail.com</span>
                 </a>
 
                 {/* 2. Phone */}
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+919172569021"
                   className="group flex items-center gap-3.5 text-sm font-medium text-[#0D1126] transition-colors hover:text-[#2457FF]"
                 >
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#EEF2FF] text-[#2457FF] transition-all duration-150 group-hover:scale-105 group-hover:bg-[#2457FF] group-hover:text-white shadow-xs">
                     <Phone className="h-4 w-4" />
                   </div>
-                  <span>+91 98765 43210</span>
+                  <span>+91 9172569021</span>
                 </a>
 
-                {/* 3. Support */}
+                {/* 3. Instagram */}
                 <a
-                  href="mailto:support@klido.in"
+                  href="https://www.instagram.com/klidoagency"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex items-center gap-3.5 text-sm font-medium text-[#0D1126] transition-colors hover:text-[#2457FF]"
                 >
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#EEF2FF] text-[#2457FF] transition-all duration-150 group-hover:scale-105 group-hover:bg-[#2457FF] group-hover:text-white shadow-xs">
-                    <Headphones className="h-4 w-4" />
+                    <Instagram className="h-4 w-4" />
                   </div>
-                  <span>support@klido.in</span>
+                  <span>@klidoagency</span>
                 </a>
               </div>
             </div>
