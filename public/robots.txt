@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Explicitly ensure Googlebot-Image has full access to favicons and brand assets
+User-agent: Googlebot-Image
+Allow: /
+
+Sitemap: https://www.klido.in/sitemap.xml
