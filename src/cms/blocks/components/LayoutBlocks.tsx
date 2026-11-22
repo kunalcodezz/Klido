@@ -11,7 +11,8 @@ export function ContainerBlock({ block, children }: { block: CmsBlock; children?
 }
 
 export function FooterBlock({ block }: { block: CmsBlock }) {
-  return <Footer />;
+  // Suppress duplicate footer if main layout renders global Footer
+  return null;
 }
 
 export function GridBlock({ block, children }: { block: CmsBlock; children?: React.ReactNode }) {
