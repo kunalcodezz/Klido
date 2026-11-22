@@ -439,9 +439,9 @@ export const CLIENT_BRANDS: ClientBrand[] = [
 
 export const STUDIO_IMAGES = {
   logo: klidoLogoImg,
-  hero: '/src/assets/images/klido_hero_studio_1794583087140.jpg',
-  strategyDesk: '/src/assets/images/klido_strategy_desk_1794583087264.jpg',
-  studioInterior: '/src/assets/images/klido_studio_interior_1794583088377.jpg',
+  hero: klidodeskImg,
+  strategyDesk: klidodeskImg,
+  studioInterior: klidodeskImg,
   brandDesk: klidodeskImg,
   brandHashi: hashiImg,
   brandSaanjh: saanjhImg,
