@@ -133,17 +133,25 @@ export async function fetchPublishedPageBySlug(
 
     const tree = validatePageTree(rev.content_json);
 
+    // Extract SEO metadata from seo_metadata jsonb or top-level columns
+    const seoMeta = page.seo_metadata || {};
+    const seoTitle = seoMeta.seoTitle || page.seo_title || page.title;
+    const seoDescription = seoMeta.metaDescription || page.seo_description || '';
+    const ogImageUrl = seoMeta.ogImage || page.og_image_url || '';
+    const canonicalUrl = seoMeta.canonicalUrl || page.canonical_url || '';
+    const noIndex = seoMeta.robotsIndex === false || page.no_index === true;
+
     return {
       page: {
         id: page.id,
         slug: page.slug,
         title: page.title,
         page_type: page.page_type,
-        seo_title: page.seo_title,
-        seo_description: page.seo_description,
-        og_image_url: page.og_image_url,
-        canonical_url: page.canonical_url,
-        no_index: page.no_index,
+        seo_title: seoTitle,
+        seo_description: seoDescription,
+        og_image_url: ogImageUrl,
+        canonical_url: canonicalUrl,
+        no_index: noIndex,
       },
       tree,
     };

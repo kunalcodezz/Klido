@@ -6,17 +6,14 @@ import klidoLogo from '../assets/images/Klido_Logo.png';
 interface NavItem {
   label: string;
   to: string;
-  matchPath: string;
-  matchHash?: string;
-  matchDefaultHome?: boolean;
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { label: 'Services', to: '/', matchPath: '/', matchDefaultHome: true },
-  { label: 'Approach', to: '/#how-we-work', matchPath: '/', matchHash: '#how-we-work' },
-  { label: 'Studio', to: '/about', matchPath: '/about' },
-  { label: 'Work', to: '/#work', matchPath: '/', matchHash: '#work' },
-  { label: 'Pricing', to: '/#pricing', matchPath: '/', matchHash: '#pricing' },
+  { label: 'Home', to: '/' },
+  { label: 'Services', to: '/services' },
+  { label: 'Approach', to: '/approach' },
+  { label: 'About', to: '/about' },
+  { label: 'Contact', to: '/contact' },
 ];
 
 export function KlidoMark() {
@@ -98,16 +95,10 @@ export function Header() {
   }, []);
 
   const isNavItemActive = (item: NavItem) => {
-    if (item.matchHash) {
-      return location.pathname === item.matchPath && location.hash === item.matchHash;
+    if (item.to === '/') {
+      return location.pathname === '/';
     }
-    if (item.matchDefaultHome) {
-      return (
-        (location.pathname === '/' && !location.hash) ||
-        location.pathname === '/services'
-      );
-    }
-    return location.pathname === item.matchPath;
+    return location.pathname === item.to || location.pathname.startsWith(item.to + '/');
   };
 
   const handleNavClick = (item: NavItem) => {

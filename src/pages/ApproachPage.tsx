@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { AUDIT_DOMAINS, OPERATING_BOUNDARIES } from '../data/klidoData';
+import { HowWeWorkSection } from '../components/HowWeWorkSection';
 
 const TIMELINE_PHASES = [
   {
@@ -120,6 +121,9 @@ export function ApproachPage() {
           </div>
         </div>
       </section>
+
+      {/* Project Workflow / Process */}
+      <HowWeWorkSection />
 
       {/* Interactive Audit Matrix */}
       <section

@@ -19,9 +19,17 @@ export function Footer() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-7">
             <div>
               <h2 className="font-display text-sm font-semibold text-[#0D1126]">
-                Practice
+                Pages
               </h2>
               <ul className="mt-4 space-y-2.5 text-sm text-[#4A5268]">
+                <li>
+                  <Link
+                    to="/"
+                    className="transition-colors duration-150 hover:text-[#0D1126]"
+                  >
+                    Home
+                  </Link>
+                </li>
                 <li>
                   <Link
                     to="/services"
@@ -43,15 +51,15 @@ export function Footer() {
                     to="/about"
                     className="transition-colors duration-150 hover:text-[#0D1126]"
                   >
-                    Studio
+                    About
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/#work"
+                    to="/contact"
                     className="transition-colors duration-150 hover:text-[#0D1126]"
                   >
-                    Work
+                    Contact
                   </Link>
                 </li>
               </ul>
@@ -59,23 +67,15 @@ export function Footer() {
 
             <div>
               <h2 className="font-display text-sm font-semibold text-[#0D1126]">
-                Engage
+                Explore
               </h2>
               <ul className="mt-4 space-y-2.5 text-sm text-[#4A5268]">
                 <li>
                   <Link
-                    to="/#pricing"
+                    to="/services#pricing"
                     className="transition-colors duration-150 hover:text-[#0D1126]"
                   >
                     Service Plans
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/#faq"
-                    className="transition-colors duration-150 hover:text-[#0D1126]"
-                  >
-                    FAQ
                   </Link>
                 </li>
                 <li>

@@ -3,6 +3,7 @@ import { ArrowRight, Check } from 'lucide-react';
 import { PRACTICE_AREAS, STUDIO_IMAGES } from '../data/klidoData';
 import { ResilientImage } from '../components/ResilientImage';
 import { ScopePlanner } from '../components/ScopePlanner';
+import { PricingSection } from '../components/PricingSection';
 
 export function ServicesPage() {
   return (
@@ -131,8 +132,11 @@ export function ServicesPage() {
         </div>
       </section>
 
+      {/* Service Plans & Pricing */}
+      <PricingSection />
+
       {/* Interactive Scope Planner Section */}
-      <section className="border-t border-[#E5E9F2] bg-[#F7F9FE] py-16 sm:py-20 lg:py-24">
+      <section id="scope-planner" className="border-t border-[#E5E9F2] bg-[#F7F9FE] py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
           <ScopePlanner />
         </div>

@@ -80,6 +80,34 @@ function NotFoundPage() {
   );
 }
 
+const PAGE_FALLBACK_METADATA: Record<string, { title: string; description: string }> = {
+  '/': {
+    title: 'Klido — Independent Digital Marketing & Operations Studio',
+    description:
+      'Klido turns ambitious brands into brands people remember through clear positioning, performance marketing, creative campaigns, and business operations.',
+  },
+  '/services': {
+    title: 'Services & Practice Disciplines | Klido',
+    description:
+      'Explore Klido’s core growth disciplines: Paid Search & Social Acquisition, Technical SEO, Conversion Architecture, and Transparent Performance Systems.',
+  },
+  '/approach': {
+    title: 'Operating Standards & Methodology | Klido',
+    description:
+      'Clear sequences, verifiable tracking, and zero black-box management. How Klido onboards accounts, audits diagnostic hygiene, and collaborates week to week.',
+  },
+  '/about': {
+    title: 'About Klido Studio | Independent Digital Marketing',
+    description:
+      'An independent studio built to connect analytical media with clear design. Learn about Klido’s values, operating principles, and multidisciplinary team.',
+  },
+  '/contact': {
+    title: 'Contact Klido | Let’s Build Something Great Together',
+    description:
+      'Start a project with Klido. Inquire about performance marketing, technical SEO, conversion architecture, or operational retainers.',
+  },
+};
+
 /**
  * Dynamic CMS Page Route Component
  * Resolves published page revisions from Supabase with fallback to static components.
@@ -113,10 +141,15 @@ function CmsRouteHandler({
     }
   }
 
-  // Update dynamic SEO metadata
+  // Update dynamic SEO metadata (with static fallback metadata for each approved page)
   useEffect(() => {
-    if (bundle?.seoGlobal) {
-      const seo = resolvePublicPageSeo(cmsPayload?.page || null, bundle.seoGlobal);
+    const fallbackMeta = PAGE_FALLBACK_METADATA[currentPath] || {
+      title: bundle?.seoGlobal?.defaultTitle || 'Klido',
+      description: bundle?.seoGlobal?.defaultMetaDescription || '',
+    };
+
+    if (cmsPayload?.page) {
+      const seo = resolvePublicPageSeo(cmsPayload.page, bundle?.seoGlobal || ({} as any));
       document.title = seo.title;
 
       let metaDesc = document.querySelector('meta[name="description"]');
@@ -128,8 +161,14 @@ function CmsRouteHandler({
       if (seo.description) {
         metaDesc.setAttribute('content', seo.description);
       }
+    } else {
+      document.title = fallbackMeta.title;
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && fallbackMeta.description) {
+        metaDesc.setAttribute('content', fallbackMeta.description);
+      }
     }
-  }, [cmsPayload, bundle]);
+  }, [cmsPayload, bundle, currentPath]);
 
   if (isLoading) {
     if (FallbackComponent) {
