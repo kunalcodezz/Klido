@@ -68,12 +68,12 @@ function NotFoundPage() {
           >
             Back to Home
           </Link>
-          <Link
-            to="/services"
+          <a
+            href="/#services"
             className="inline-flex min-h-[44px] items-center rounded-lg border border-[#CFD6E6] bg-white px-4 py-2 text-sm font-medium text-[#0D1126] hover:bg-[#F7F9FE]"
           >
             Explore Services
-          </Link>
+          </a>
         </div>
       </div>
     </section>
@@ -268,23 +268,11 @@ function MainAppLayout() {
             <main id="main-content" className="flex-1">
               <Routes>
                 <Route path="/" element={<CmsRouteHandler slug="/" fallbackComponent={HomePage} />} />
-                <Route
-                  path="/services"
-                  element={<CmsRouteHandler slug="/services" fallbackComponent={ServicesPage} />}
-                />
-                <Route
-                  path="/approach"
-                  element={<CmsRouteHandler slug="/approach" fallbackComponent={ApproachPage} />}
-                />
-                <Route
-                  path="/about"
-                  element={<CmsRouteHandler slug="/about" fallbackComponent={AboutPage} />}
-                />
-                <Route
-                  path="/contact"
-                  element={<CmsRouteHandler slug="/contact" fallbackComponent={ContactPage} />}
-                />
-                <Route path="*" element={<CmsRouteHandler />} />
+                <Route path="/services" element={<Navigate to="/#services" replace />} />
+                <Route path="/approach" element={<Navigate to="/#approach" replace />} />
+                <Route path="/about" element={<Navigate to="/#about" replace />} />
+                <Route path="/contact" element={<Navigate to="/#contact" replace />} />
+                <Route path="*" element={<CmsRouteHandler fallbackComponent={NotFoundPage} />} />
               </Routes>
             </main>
             <Footer />

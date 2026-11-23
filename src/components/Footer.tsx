@@ -23,44 +23,44 @@ export function Footer() {
               </h2>
               <ul className="mt-4 space-y-2.5 text-sm text-[#4A5268]">
                 <li>
-                  <Link
-                    to="/"
+                  <a
+                    href="/#home"
                     className="transition-colors duration-150 hover:text-[#0D1126]"
                   >
                     Home
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    to="/services"
+                  <a
+                    href="/#services"
                     className="transition-colors duration-150 hover:text-[#0D1126]"
                   >
                     Services
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    to="/approach"
+                  <a
+                    href="/#approach"
                     className="transition-colors duration-150 hover:text-[#0D1126]"
                   >
                     Approach
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    to="/about"
+                  <a
+                    href="/#about"
                     className="transition-colors duration-150 hover:text-[#0D1126]"
                   >
                     About
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    to="/contact"
+                  <a
+                    href="/#contact"
                     className="transition-colors duration-150 hover:text-[#0D1126]"
                   >
                     Contact
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -71,36 +71,36 @@ export function Footer() {
               </h2>
               <ul className="mt-4 space-y-2.5 text-sm text-[#4A5268]">
                 <li>
-                  <Link
-                    to="/services#pricing"
+                  <a
+                    href="/#services"
                     className="transition-colors duration-150 hover:text-[#0D1126]"
                   >
                     Service Plans
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    to="/services#scope-planner"
+                  <a
+                    href="/#scope-planner"
                     className="transition-colors duration-150 hover:text-[#0D1126]"
                   >
                     Scope Planner
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    to="/approach#audit-matrix"
+                  <a
+                    href="/#approach"
                     className="transition-colors duration-150 hover:text-[#0D1126]"
                   >
                     Audit Standards
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    to="/contact"
+                  <a
+                    href="/#contact"
                     className="transition-colors duration-150 hover:text-[#0D1126]"
                   >
                     Start a project
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>

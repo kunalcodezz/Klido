@@ -1,19 +1,20 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import klidoLogo from '../assets/images/Klido_Logo.png';
 
 interface NavItem {
   label: string;
-  to: string;
+  id: string;
+  hash: string;
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { label: 'Home', to: '/' },
-  { label: 'Services', to: '/services' },
-  { label: 'Approach', to: '/approach' },
-  { label: 'About', to: '/about' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Home', id: 'home', hash: '#home' },
+  { label: 'Services', id: 'services', hash: '#services' },
+  { label: 'Approach', id: 'approach', hash: '#approach' },
+  { label: 'About', id: 'about', hash: '#about' },
+  { label: 'Contact', id: 'contact', hash: '#contact' },
 ];
 
 export function KlidoMark() {
@@ -40,6 +41,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const lastScrollY = useRef(0);
   const location = useLocation();
 
@@ -59,6 +61,7 @@ export function Header() {
     setMobileOpen(false);
   }, [location.pathname, location.hash]);
 
+  // Navbar collapse/expand on scroll
   useEffect(() => {
     lastScrollY.current = window.scrollY;
     let ticking = false;
@@ -94,16 +97,63 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isNavItemActive = (item: NavItem) => {
-    if (item.to === '/') {
-      return location.pathname === '/';
+  // IntersectionObserver for tracking active section in viewport
+  useEffect(() => {
+    const sectionIds = ['home', 'services', 'approach', 'about', 'contact'];
+
+    const handleIntersect: IntersectionObserverCallback = (entries) => {
+      const intersecting = entries.filter((entry) => entry.isIntersecting);
+      if (intersecting.length > 0) {
+        // Pick the top-most visible section
+        intersecting.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        setActiveSection(intersecting[0].target.id);
+      }
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, {
+      rootMargin: '-20% 0px -55% 0px',
+      threshold: [0, 0.15],
+    });
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToSection = (id: string, hash: string) => {
+    setMobileOpen(false);
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      window.history.replaceState(null, '', `/${hash}`);
+      setActiveSection(id);
+    } else {
+      window.location.href = `/${hash}`;
     }
-    return location.pathname === item.to || location.pathname.startsWith(item.to + '/');
   };
 
-  const handleNavClick = (item: NavItem) => {
-    if (item.to === '/' && location.pathname === '/') {
+  const handleNavClick = (e: React.MouseEvent, item: NavItem) => {
+    e.preventDefault();
+    scrollToSection(item.id, item.hash);
+  };
+
+  const handleStartProjectClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    scrollToSection('contact', '#contact');
+  };
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setMobileOpen(false);
+    if (location.pathname === '/' || location.pathname === '') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.history.replaceState(null, '', '/#home');
+      setActiveSection('home');
+    } else {
+      window.location.href = '/#home';
     }
   };
 
@@ -128,17 +178,13 @@ export function Header() {
           }`}
         >
           {/* Zone 1: Brand mark */}
-          <Link
-            to="/"
-            onClick={() => {
-              if (location.pathname === '/') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
-            }}
+          <a
+            href="/#home"
+            onClick={handleLogoClick}
             className="shrink-0 whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#123FFF]"
           >
             <KlidoMark />
-          </Link>
+          </a>
 
           {/* Zone 2: Morphing navigation links (collapses on downward scroll, restores on upward scroll or top) */}
           <nav
@@ -151,13 +197,13 @@ export function Header() {
             }`}
           >
             {NAV_ITEMS.map((item) => {
-              const active = isNavItemActive(item);
+              const active = activeSection === item.id;
               return (
-                <Link
+                <a
                   key={item.label}
-                  to={item.to}
+                  href={`/${item.hash}`}
                   tabIndex={showExpandedLinks ? 0 : -1}
-                  onClick={() => handleNavClick(item)}
+                  onClick={(e) => handleNavClick(e, item)}
                   className={`shrink-0 whitespace-nowrap py-1 text-sm font-medium transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#123FFF] ${
                     active
                       ? 'border-b-2 border-[#123FFF] text-[#0D1126]'
@@ -165,15 +211,16 @@ export function Header() {
                   }`}
                 >
                   {item.label}
-                </Link>
+                </a>
               );
             })}
           </nav>
 
           {/* Zone 3: Start a project CTA (black background, white text) + mobile menu toggle */}
           <div className="flex shrink-0 items-center gap-3">
-            <Link
-              to="/contact"
+            <a
+              href="/#contact"
+              onClick={handleStartProjectClick}
               className="group hidden shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-black px-4 py-2 text-sm font-semibold text-white transition-colors duration-150 hover:bg-[#101735] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#123FFF] sm:inline-flex"
             >
               <span>Start a project</span>
@@ -181,7 +228,7 @@ export function Header() {
                 className="h-4 w-4 shrink-0 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 aria-hidden="true"
               />
-            </Link>
+            </a>
 
             <button
               type="button"
@@ -223,12 +270,12 @@ export function Header() {
           >
             <div className="flex flex-col gap-1">
               {NAV_ITEMS.map((item) => {
-                const active = isNavItemActive(item);
+                const active = activeSection === item.id;
                 return (
-                  <Link
+                  <a
                     key={item.label}
-                    to={item.to}
-                    onClick={() => { handleNavClick(item); setMobileOpen(false); }}
+                    href={`/${item.hash}`}
+                    onClick={(e) => handleNavClick(e, item)}
                     className={`flex min-h-[48px] items-center rounded-lg px-3 text-base font-medium transition-colors duration-150 ${
                       active
                         ? 'bg-[#EEF2FF] text-[#123FFF]'
@@ -236,13 +283,13 @@ export function Header() {
                     }`}
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 );
               })}
               <div className="mt-3 flex items-center justify-center border-t border-[#E5E9F2] pt-3">
-                <Link
-                  to="/contact"
-                  onClick={() => setMobileOpen(false)}
+                <a
+                  href="/#contact"
+                  onClick={handleStartProjectClick}
                   className="group inline-flex min-h-[48px] w-full items-center justify-center gap-1.5 rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-[#101735] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123FFF]"
                 >
                   <span>Start a project</span>
@@ -250,7 +297,7 @@ export function Header() {
                     className="h-4 w-4 shrink-0 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                     aria-hidden="true"
                   />
-                </Link>
+                </a>
               </div>
             </div>
           </nav>

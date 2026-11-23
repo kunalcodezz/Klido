@@ -7,16 +7,16 @@ import type { CmsBlock } from '../../schemas/blocks';
 
 export function HeroBlock({ block }: { block: CmsBlock }) {
   const props = (block.props || {}) as Record<string, any>;
-  const eyebrow = String(props.eyebrow || 'YOUR PARTNER IN DIGITAL GROWTH');
-  const headlinePrefix = String(props.headlinePrefix || 'We turn ambitious brands into ');
-  const headlineAccent = String(props.headlineAccent || 'brands people remember.');
+  const eyebrow = String(props.eyebrow || 'Independent digital marketing studio');
+  const headlinePrefix = String(props.headlinePrefix || 'Marketing that gives people a reason to ');
+  const headlineAccent = String(props.headlineAccent || 'choose you');
   const primaryCta = (props.primaryCta || {
     label: "Tell us what you're building",
-    href: '#start-project',
+    href: '#contact',
   }) as { label?: string; href?: string };
   const secondaryCta = (props.secondaryCta || {
     label: 'See how we work',
-    href: '/approach',
+    href: '#approach',
   }) as { label?: string; href?: string };
   const isMapVariant = props.variant === 'home-map' || !props.imageUrl;
 
@@ -39,10 +39,10 @@ export function HeroBlock({ block }: { block: CmsBlock }) {
                 className="inline-block h-[3px] w-6 rounded-full bg-[#C2F81A]"
                 aria-hidden="true"
               />
-              <span className="uppercase tracking-wider">{eyebrow}</span>
+              <span>{eyebrow}</span>
             </div>
 
-            <h1 className="font-display mt-5 text-balance text-[2rem] font-bold leading-[1.08] tracking-[-0.03em] text-[#0D1126] sm:text-4xl lg:text-[3.5rem] lg:leading-[1.06]">
+            <h1 className="font-display mt-5 text-balance text-4xl font-bold leading-[1.06] tracking-[-0.03em] text-[#0D1126] sm:text-5xl lg:text-[3.5rem]">
               {headlinePrefix}
               <span className="relative inline-block text-[#123FFF]">
                 <span>{headlineAccent}</span>
@@ -70,9 +70,7 @@ export function HeroBlock({ block }: { block: CmsBlock }) {
                 <RichTextRenderer doc={props.description} />
               ) : (
                 <p>
-                  From brand positioning and performance marketing to creative campaigns and
-                  business operations, Klido brings everything together to help businesses build a
-                  stronger presence and grow with purpose.
+                  Klido turns a strong offer into clear positioning, considered campaigns, and a practical system for growth.
                 </p>
               )}
             </div>
